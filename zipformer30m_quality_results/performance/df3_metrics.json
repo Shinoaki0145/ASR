@@ -1,0 +1,29 @@
+{
+  "model": "DeepFilterNet3",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "torch_version": "2.5.1+cu121",
+  "torch_cuda_version": "12.1",
+  "deepfilternet_version": "0.5.7rc0",
+  "source_sr": 48000,
+  "asr_sr": 16000,
+  "worker_python": "3.12.3 (main, Apr 15 2024, 18:25:56) [Clang 17.0.6 ]",
+  "model_load_seconds": 1.7457246929999997,
+  "warmup_runs": 2,
+  "measured_runs": 5,
+  "enhancement_latencies_seconds": [
+    0.09000340100004678,
+    0.08309405400001424,
+    0.07197187399998484,
+    0.07638106600001038,
+    0.06985811199996306
+  ],
+  "median_enhancement_seconds": 0.07638106600001038,
+  "p95_enhancement_seconds": 0.08862153160004027,
+  "single_resample_seconds": 0.014702008999961436,
+  "audio_seconds": 11.34,
+  "enhancement_median_rtf": 0.006735543738977987,
+  "output_peak": 0.4978387653827667,
+  "output_fraction_above_one": 0.0,
+  "notes": "Warm enhancement includes CPU STFT/synthesis, transfers and CUDA network; excludes startup/model load/I/O/resampling. Resample timed once."
+}

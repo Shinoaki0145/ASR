@@ -1,0 +1,2776 @@
+{
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "torch_version": "2.5.1+cu121",
+  "deepfilternet_version": "0.5.7rc0",
+  "manifest_sha256": "a52dfb2432a17898b5436afe32d74655533c2b7be87f186b92817648ca84bc09",
+  "samples": {
+    "vi_000_clean": {
+      "enhancement_seconds": 0.08664268600000469,
+      "resample_seconds": 0.017314069999997628,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.5725567084106151
+    },
+    "vi_000_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.08482099999997672,
+      "resample_seconds": 0.01578091799996173,
+      "output_peak": 0.28403759002685547,
+      "rms_attenuation_db": 3.933580696011594
+    },
+    "vi_000_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.07546164000001454,
+      "resample_seconds": 0.017214009999975133,
+      "output_peak": 0.4787617325782776,
+      "rms_attenuation_db": 1.9359091820271603
+    },
+    "vi_000_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07823108100001264,
+      "resample_seconds": 0.016608722999990277,
+      "output_peak": 0.4525580406188965,
+      "rms_attenuation_db": 1.4551727479153496
+    },
+    "vi_000_keyboard_events_snr00": {
+      "enhancement_seconds": 0.08215623699999242,
+      "resample_seconds": 0.017632800000001225,
+      "output_peak": 0.36307159066200256,
+      "rms_attenuation_db": 2.376077688671299
+    },
+    "vi_000_keyboard_events_snr05": {
+      "enhancement_seconds": 0.0748423659999844,
+      "resample_seconds": 0.016883383000049434,
+      "output_peak": 0.4978387653827667,
+      "rms_attenuation_db": 1.3978325036357473
+    },
+    "vi_000_keyboard_events_snr10": {
+      "enhancement_seconds": 0.08175514499998826,
+      "resample_seconds": 0.017219755999974495,
+      "output_peak": 0.4935900866985321,
+      "rms_attenuation_db": 1.0051649629501582
+    },
+    "vi_000_knock_events_snr00": {
+      "enhancement_seconds": 0.07847956099999465,
+      "resample_seconds": 0.016239741000049435,
+      "output_peak": 0.4883114993572235,
+      "rms_attenuation_db": 1.6081439012305738
+    },
+    "vi_000_knock_events_snr05": {
+      "enhancement_seconds": 0.07901397200004112,
+      "resample_seconds": 0.016584955000041646,
+      "output_peak": 0.4823695719242096,
+      "rms_attenuation_db": 1.233638181472982
+    },
+    "vi_000_knock_events_snr10": {
+      "enhancement_seconds": 0.08085218700000496,
+      "resample_seconds": 0.01686514900001157,
+      "output_peak": 0.4871794581413269,
+      "rms_attenuation_db": 1.0706366548285147
+    },
+    "vi_000_doorslam_events_snr00": {
+      "enhancement_seconds": 0.07971847599998227,
+      "resample_seconds": 0.017123890999982905,
+      "output_peak": 0.49542394280433655,
+      "rms_attenuation_db": 1.275850798364047
+    },
+    "vi_000_doorslam_events_snr05": {
+      "enhancement_seconds": 0.08083739099998866,
+      "resample_seconds": 0.017041952999989007,
+      "output_peak": 0.4950851500034332,
+      "rms_attenuation_db": 1.0207301148381966
+    },
+    "vi_000_doorslam_events_snr10": {
+      "enhancement_seconds": 0.08186261299999842,
+      "resample_seconds": 0.01680415699996729,
+      "output_peak": 0.5029913187026978,
+      "rms_attenuation_db": 0.7324360115933171
+    },
+    "vi_000_keys_events_snr00": {
+      "enhancement_seconds": 0.08096368099995743,
+      "resample_seconds": 0.01687766800000645,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.903253810723666
+    },
+    "vi_000_keys_events_snr05": {
+      "enhancement_seconds": 0.08076611100000264,
+      "resample_seconds": 0.017227132999948935,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.7031035164227453
+    },
+    "vi_000_keys_events_snr10": {
+      "enhancement_seconds": 0.08378945999999132,
+      "resample_seconds": 0.017998406000003797,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.628732761920428
+    },
+    "vi_000_pageturn_events_snr00": {
+      "enhancement_seconds": 0.08308348199994953,
+      "resample_seconds": 0.01645398400000886,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 1.0256107263014778
+    },
+    "vi_000_pageturn_events_snr05": {
+      "enhancement_seconds": 0.0798019470000213,
+      "resample_seconds": 0.016627411000001757,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.730367701857481
+    },
+    "vi_000_pageturn_events_snr10": {
+      "enhancement_seconds": 0.08272750800000495,
+      "resample_seconds": 0.016705410000042775,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.6316302336871902
+    },
+    "vi_000_phone_events_snr00": {
+      "enhancement_seconds": 0.07848059499997362,
+      "resample_seconds": 0.016223974000013186,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 1.58367229041105
+    },
+    "vi_000_phone_events_snr05": {
+      "enhancement_seconds": 0.07993059799997582,
+      "resample_seconds": 0.01674220500001411,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.945178894096622
+    },
+    "vi_000_phone_events_snr10": {
+      "enhancement_seconds": 0.08049672799995733,
+      "resample_seconds": 0.016787334000014198,
+      "output_peak": 0.5042958855628967,
+      "rms_attenuation_db": 0.7150130816781652
+    },
+    "vi_001_clean": {
+      "enhancement_seconds": 0.06194152599999825,
+      "resample_seconds": 0.01113500799999656,
+      "output_peak": 0.4312238395214081,
+      "rms_attenuation_db": 0.6675512780360238
+    },
+    "vi_001_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.05270056899996689,
+      "resample_seconds": 0.010884013999998388,
+      "output_peak": 0.3094691336154938,
+      "rms_attenuation_db": 4.66608951011135
+    },
+    "vi_001_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.0538753889999839,
+      "resample_seconds": 0.011623464999956923,
+      "output_peak": 0.3005058169364929,
+      "rms_attenuation_db": 3.493413333215967
+    },
+    "vi_001_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.05406840000000557,
+      "resample_seconds": 0.011659221999991587,
+      "output_peak": 0.31324300169944763,
+      "rms_attenuation_db": 2.7333637142716154
+    },
+    "vi_001_keyboard_events_snr00": {
+      "enhancement_seconds": 0.05358690100001695,
+      "resample_seconds": 0.010790681000003133,
+      "output_peak": 0.3118872344493866,
+      "rms_attenuation_db": 1.9551208647718785
+    },
+    "vi_001_keyboard_events_snr05": {
+      "enhancement_seconds": 0.053664066999999704,
+      "resample_seconds": 0.011626315999990311,
+      "output_peak": 0.4150823652744293,
+      "rms_attenuation_db": 0.9350767335411707
+    },
+    "vi_001_keyboard_events_snr10": {
+      "enhancement_seconds": 0.049055354000017815,
+      "resample_seconds": 0.010753361000013228,
+      "output_peak": 0.4192178547382355,
+      "rms_attenuation_db": 0.5293124756373329
+    },
+    "vi_001_knock_events_snr00": {
+      "enhancement_seconds": 0.053242775000001075,
+      "resample_seconds": 0.01117455600001449,
+      "output_peak": 0.4201224148273468,
+      "rms_attenuation_db": 1.4132750769114164
+    },
+    "vi_001_knock_events_snr05": {
+      "enhancement_seconds": 0.05375146699998368,
+      "resample_seconds": 0.010313168999971367,
+      "output_peak": 0.42714330554008484,
+      "rms_attenuation_db": 0.7082999933143472
+    },
+    "vi_001_knock_events_snr10": {
+      "enhancement_seconds": 0.051477148999993005,
+      "resample_seconds": 0.01045365199996695,
+      "output_peak": 0.43374696373939514,
+      "rms_attenuation_db": 0.437572243118513
+    },
+    "vi_001_doorslam_events_snr00": {
+      "enhancement_seconds": 0.053475662999971973,
+      "resample_seconds": 0.011376111999993554,
+      "output_peak": 0.43369799852371216,
+      "rms_attenuation_db": 0.8203759885316929
+    },
+    "vi_001_doorslam_events_snr05": {
+      "enhancement_seconds": 0.05268763999998782,
+      "resample_seconds": 0.011116013999981078,
+      "output_peak": 0.4340880513191223,
+      "rms_attenuation_db": 0.6751416792708582
+    },
+    "vi_001_doorslam_events_snr10": {
+      "enhancement_seconds": 0.05405870900000309,
+      "resample_seconds": 0.010876561999964451,
+      "output_peak": 0.4330406188964844,
+      "rms_attenuation_db": 0.7196883218340842
+    },
+    "vi_001_keys_events_snr00": {
+      "enhancement_seconds": 0.053955557999984194,
+      "resample_seconds": 0.010726554000029864,
+      "output_peak": 0.3986586034297943,
+      "rms_attenuation_db": 0.7028090790076508
+    },
+    "vi_001_keys_events_snr05": {
+      "enhancement_seconds": 0.05375156700000616,
+      "resample_seconds": 0.011099299000022711,
+      "output_peak": 0.4350071847438812,
+      "rms_attenuation_db": 0.6619499406220684
+    },
+    "vi_001_keys_events_snr10": {
+      "enhancement_seconds": 0.051780253000003995,
+      "resample_seconds": 0.010850541000024805,
+      "output_peak": 0.4348643720149994,
+      "rms_attenuation_db": 0.691712109900824
+    },
+    "vi_001_pageturn_events_snr00": {
+      "enhancement_seconds": 0.051345282999989195,
+      "resample_seconds": 0.010307678000003762,
+      "output_peak": 0.3870863914489746,
+      "rms_attenuation_db": 3.568627736048785
+    },
+    "vi_001_pageturn_events_snr05": {
+      "enhancement_seconds": 0.0527708950000374,
+      "resample_seconds": 0.010987393999982942,
+      "output_peak": 0.4274544417858124,
+      "rms_attenuation_db": 1.8270328250296488
+    },
+    "vi_001_pageturn_events_snr10": {
+      "enhancement_seconds": 0.05317452100001674,
+      "resample_seconds": 0.010658328000033634,
+      "output_peak": 0.43250271677970886,
+      "rms_attenuation_db": 0.9374073683535001
+    },
+    "vi_001_phone_events_snr00": {
+      "enhancement_seconds": 0.05366777300002923,
+      "resample_seconds": 0.010670838999999432,
+      "output_peak": 0.3678142726421356,
+      "rms_attenuation_db": 1.765392941766537
+    },
+    "vi_001_phone_events_snr05": {
+      "enhancement_seconds": 0.05313792399999784,
+      "resample_seconds": 0.010927299999991646,
+      "output_peak": 0.39073434472084045,
+      "rms_attenuation_db": 1.1237169643927167
+    },
+    "vi_001_phone_events_snr10": {
+      "enhancement_seconds": 0.051065034999965064,
+      "resample_seconds": 0.010379153999963364,
+      "output_peak": 0.40902966260910034,
+      "rms_attenuation_db": 0.85125192777373
+    },
+    "vi_002_clean": {
+      "enhancement_seconds": 0.07763066599994772,
+      "resample_seconds": 0.014411817999985033,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 0.5379894815829148
+    },
+    "vi_002_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.0679563879999705,
+      "resample_seconds": 0.015384063999988484,
+      "output_peak": 0.31583428382873535,
+      "rms_attenuation_db": 3.564270062670296
+    },
+    "vi_002_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.0721164870000166,
+      "resample_seconds": 0.01536672700001418,
+      "output_peak": 0.32413336634635925,
+      "rms_attenuation_db": 1.7895099059121686
+    },
+    "vi_002_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07073898200002304,
+      "resample_seconds": 0.013924056999996992,
+      "output_peak": 0.29747146368026733,
+      "rms_attenuation_db": 1.4459608450389978
+    },
+    "vi_002_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07122878799998489,
+      "resample_seconds": 0.014811454000039248,
+      "output_peak": 0.24123097956180573,
+      "rms_attenuation_db": 1.2207720791827716
+    },
+    "vi_002_keyboard_events_snr05": {
+      "enhancement_seconds": 0.0700465640000516,
+      "resample_seconds": 0.015127547000020058,
+      "output_peak": 0.3611249327659607,
+      "rms_attenuation_db": 0.81561182905512
+    },
+    "vi_002_keyboard_events_snr10": {
+      "enhancement_seconds": 0.06909352599996055,
+      "resample_seconds": 0.014503096999987974,
+      "output_peak": 0.3606754243373871,
+      "rms_attenuation_db": 0.6349237727130462
+    },
+    "vi_002_knock_events_snr00": {
+      "enhancement_seconds": 0.06856828000002224,
+      "resample_seconds": 0.015129285000000436,
+      "output_peak": 0.3181491196155548,
+      "rms_attenuation_db": 2.7044363531586506
+    },
+    "vi_002_knock_events_snr05": {
+      "enhancement_seconds": 0.06692829299998948,
+      "resample_seconds": 0.014098258999979407,
+      "output_peak": 0.30025631189346313,
+      "rms_attenuation_db": 1.865556618969165
+    },
+    "vi_002_knock_events_snr10": {
+      "enhancement_seconds": 0.06664006900001596,
+      "resample_seconds": 0.014492782999980136,
+      "output_peak": 0.3041084110736847,
+      "rms_attenuation_db": 1.3366178008119554
+    },
+    "vi_002_doorslam_events_snr00": {
+      "enhancement_seconds": 0.0707228410000198,
+      "resample_seconds": 0.015208664999988741,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 0.6744338747361294
+    },
+    "vi_002_doorslam_events_snr05": {
+      "enhancement_seconds": 0.06541885300003969,
+      "resample_seconds": 0.014368404999970608,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 0.5785554203699765
+    },
+    "vi_002_doorslam_events_snr10": {
+      "enhancement_seconds": 0.06582797900000514,
+      "resample_seconds": 0.012870140000018182,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 0.5492040644886697
+    },
+    "vi_002_keys_events_snr00": {
+      "enhancement_seconds": 0.0684919759999616,
+      "resample_seconds": 0.013471605000006548,
+      "output_peak": 0.2964252233505249,
+      "rms_attenuation_db": 1.6980694812626287
+    },
+    "vi_002_keys_events_snr05": {
+      "enhancement_seconds": 0.06773948000000019,
+      "resample_seconds": 0.013581631000022298,
+      "output_peak": 0.29843220114707947,
+      "rms_attenuation_db": 1.3760736935005804
+    },
+    "vi_002_keys_events_snr10": {
+      "enhancement_seconds": 0.06625141500001064,
+      "resample_seconds": 0.012866040000005796,
+      "output_peak": 0.29986825585365295,
+      "rms_attenuation_db": 1.2340713929077889
+    },
+    "vi_002_pageturn_events_snr00": {
+      "enhancement_seconds": 0.0788199190000114,
+      "resample_seconds": 0.013550814999973682,
+      "output_peak": 0.3772466778755188,
+      "rms_attenuation_db": 2.461790521621148
+    },
+    "vi_002_pageturn_events_snr05": {
+      "enhancement_seconds": 0.06526307500001849,
+      "resample_seconds": 0.013387291000015011,
+      "output_peak": 0.3477475643157959,
+      "rms_attenuation_db": 1.389785527714997
+    },
+    "vi_002_pageturn_events_snr10": {
+      "enhancement_seconds": 0.06472080099996447,
+      "resample_seconds": 0.013428062999992108,
+      "output_peak": 0.34828871488571167,
+      "rms_attenuation_db": 0.9436822195807365
+    },
+    "vi_002_phone_events_snr00": {
+      "enhancement_seconds": 0.06535629000001109,
+      "resample_seconds": 0.013186783000037394,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 2.1100482984679716
+    },
+    "vi_002_phone_events_snr05": {
+      "enhancement_seconds": 0.06512772500002484,
+      "resample_seconds": 0.014388146999976925,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 1.1085014195502259
+    },
+    "vi_002_phone_events_snr10": {
+      "enhancement_seconds": 0.06812597700002243,
+      "resample_seconds": 0.013495347000002766,
+      "output_peak": 0.35791072249412537,
+      "rms_attenuation_db": 0.7381178465309892
+    },
+    "vi_003_clean": {
+      "enhancement_seconds": 0.07815708399999721,
+      "resample_seconds": 0.01586709099996142,
+      "output_peak": 0.4408438205718994,
+      "rms_attenuation_db": 0.41978686646629787
+    },
+    "vi_003_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.07953710900000033,
+      "resample_seconds": 0.017208560999961264,
+      "output_peak": 0.29875287413597107,
+      "rms_attenuation_db": 3.6155523368294706
+    },
+    "vi_003_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.08021753999997827,
+      "resample_seconds": 0.016017548000036186,
+      "output_peak": 0.4364592730998993,
+      "rms_attenuation_db": 1.7202410399563242
+    },
+    "vi_003_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07853329599998915,
+      "resample_seconds": 0.016075681999950575,
+      "output_peak": 0.4345322251319885,
+      "rms_attenuation_db": 0.9312499669037726
+    },
+    "vi_003_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07461592399999972,
+      "resample_seconds": 0.015927671999975246,
+      "output_peak": 0.3034623861312866,
+      "rms_attenuation_db": 1.6842662877911532
+    },
+    "vi_003_keyboard_events_snr05": {
+      "enhancement_seconds": 0.07528713099998185,
+      "resample_seconds": 0.016598788000010245,
+      "output_peak": 0.4337899386882782,
+      "rms_attenuation_db": 0.9282595166589346
+    },
+    "vi_003_keyboard_events_snr10": {
+      "enhancement_seconds": 0.0758163300000092,
+      "resample_seconds": 0.015989139999987856,
+      "output_peak": 0.43425053358078003,
+      "rms_attenuation_db": 0.6437982065119412
+    },
+    "vi_003_knock_events_snr00": {
+      "enhancement_seconds": 0.07281711600001017,
+      "resample_seconds": 0.016979741000000104,
+      "output_peak": 0.38661128282546997,
+      "rms_attenuation_db": 2.061905697120097
+    },
+    "vi_003_knock_events_snr05": {
+      "enhancement_seconds": 0.0752460720000272,
+      "resample_seconds": 0.015179393000039454,
+      "output_peak": 0.3884230852127075,
+      "rms_attenuation_db": 1.1686778471793822
+    },
+    "vi_003_knock_events_snr10": {
+      "enhancement_seconds": 0.07680658800001083,
+      "resample_seconds": 0.014369168000030186,
+      "output_peak": 0.41282880306243896,
+      "rms_attenuation_db": 0.740730373231838
+    },
+    "vi_003_doorslam_events_snr00": {
+      "enhancement_seconds": 0.07416478899995127,
+      "resample_seconds": 0.016830268000035176,
+      "output_peak": 0.3871154189109802,
+      "rms_attenuation_db": 1.2395717334797012
+    },
+    "vi_003_doorslam_events_snr05": {
+      "enhancement_seconds": 0.07682361800004855,
+      "resample_seconds": 0.016049173999988398,
+      "output_peak": 0.3610610365867615,
+      "rms_attenuation_db": 1.4488340977968766
+    },
+    "vi_003_doorslam_events_snr10": {
+      "enhancement_seconds": 0.07413487499997018,
+      "resample_seconds": 0.01643286800003807,
+      "output_peak": 0.35782650113105774,
+      "rms_attenuation_db": 1.512479034492681
+    },
+    "vi_003_keys_events_snr00": {
+      "enhancement_seconds": 0.07888652499997306,
+      "resample_seconds": 0.017329758000016682,
+      "output_peak": 0.32588428258895874,
+      "rms_attenuation_db": 2.8291955484292903
+    },
+    "vi_003_keys_events_snr05": {
+      "enhancement_seconds": 0.07780434900001865,
+      "resample_seconds": 0.01612583899998299,
+      "output_peak": 0.34393855929374695,
+      "rms_attenuation_db": 2.2628775059627175
+    },
+    "vi_003_keys_events_snr10": {
+      "enhancement_seconds": 0.07357772500000692,
+      "resample_seconds": 0.016047177000018564,
+      "output_peak": 0.35619449615478516,
+      "rms_attenuation_db": 1.9320395025207722
+    },
+    "vi_003_pageturn_events_snr00": {
+      "enhancement_seconds": 0.0741872720000174,
+      "resample_seconds": 0.015544784000042,
+      "output_peak": 0.3693184554576874,
+      "rms_attenuation_db": 1.8958383928731335
+    },
+    "vi_003_pageturn_events_snr05": {
+      "enhancement_seconds": 0.0749311860000148,
+      "resample_seconds": 0.01637570999997706,
+      "output_peak": 0.4038574695587158,
+      "rms_attenuation_db": 0.9730448282998926
+    },
+    "vi_003_pageturn_events_snr10": {
+      "enhancement_seconds": 0.07654481899999155,
+      "resample_seconds": 0.017623705999994854,
+      "output_peak": 0.43025681376457214,
+      "rms_attenuation_db": 0.6040868987080139
+    },
+    "vi_003_phone_events_snr00": {
+      "enhancement_seconds": 0.07477033099996788,
+      "resample_seconds": 0.015733051999973213,
+      "output_peak": 0.4154132902622223,
+      "rms_attenuation_db": 1.284331612120715
+    },
+    "vi_003_phone_events_snr05": {
+      "enhancement_seconds": 0.07650483000003305,
+      "resample_seconds": 0.016440676000001986,
+      "output_peak": 0.4210457503795624,
+      "rms_attenuation_db": 0.7831287520261799
+    },
+    "vi_003_phone_events_snr10": {
+      "enhancement_seconds": 0.07403153899997506,
+      "resample_seconds": 0.015829123000003165,
+      "output_peak": 0.4234996438026428,
+      "rms_attenuation_db": 0.6158532751879406
+    },
+    "vi_004_clean": {
+      "enhancement_seconds": 0.11837018599999283,
+      "resample_seconds": 0.021213814000020648,
+      "output_peak": 0.37534627318382263,
+      "rms_attenuation_db": 0.9581450089480641
+    },
+    "vi_004_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.10105492400003868,
+      "resample_seconds": 0.023167400999966503,
+      "output_peak": 0.3423292636871338,
+      "rms_attenuation_db": 3.807718824853914
+    },
+    "vi_004_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.10697460000000092,
+      "resample_seconds": 0.02207832999999937,
+      "output_peak": 0.41269320249557495,
+      "rms_attenuation_db": 2.0551458304002654
+    },
+    "vi_004_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.09845210899999302,
+      "resample_seconds": 0.021230637000030583,
+      "output_peak": 0.388683021068573,
+      "rms_attenuation_db": 1.5150388240485233
+    },
+    "vi_004_keyboard_events_snr00": {
+      "enhancement_seconds": 0.10633417200000395,
+      "resample_seconds": 0.023028620999980376,
+      "output_peak": 0.2895511984825134,
+      "rms_attenuation_db": 0.9584084312697905
+    },
+    "vi_004_keyboard_events_snr05": {
+      "enhancement_seconds": 0.09996824600000309,
+      "resample_seconds": 0.021749632000023666,
+      "output_peak": 0.37823110818862915,
+      "rms_attenuation_db": 0.9194019775812512
+    },
+    "vi_004_keyboard_events_snr10": {
+      "enhancement_seconds": 0.10251365200002738,
+      "resample_seconds": 0.021618087000035757,
+      "output_peak": 0.3734079897403717,
+      "rms_attenuation_db": 0.9240648014859614
+    },
+    "vi_004_knock_events_snr00": {
+      "enhancement_seconds": 0.10074138500004892,
+      "resample_seconds": 0.021803675999990446,
+      "output_peak": 0.36754119396209717,
+      "rms_attenuation_db": 1.6919287747687783
+    },
+    "vi_004_knock_events_snr05": {
+      "enhancement_seconds": 0.10466041200004383,
+      "resample_seconds": 0.021208226999988256,
+      "output_peak": 0.3684364855289459,
+      "rms_attenuation_db": 1.3454671504987883
+    },
+    "vi_004_knock_events_snr10": {
+      "enhancement_seconds": 0.10506385100001125,
+      "resample_seconds": 0.02117684300003475,
+      "output_peak": 0.3706039786338806,
+      "rms_attenuation_db": 1.2004806245469792
+    },
+    "vi_004_doorslam_events_snr00": {
+      "enhancement_seconds": 0.09845180399997844,
+      "resample_seconds": 0.02085274900002787,
+      "output_peak": 0.37197020649909973,
+      "rms_attenuation_db": 1.1457789899326278
+    },
+    "vi_004_doorslam_events_snr05": {
+      "enhancement_seconds": 0.10388180899997224,
+      "resample_seconds": 0.02102312800002437,
+      "output_peak": 0.37274760007858276,
+      "rms_attenuation_db": 1.0340653654803904
+    },
+    "vi_004_doorslam_events_snr10": {
+      "enhancement_seconds": 0.10170334700001149,
+      "resample_seconds": 0.02026169599997729,
+      "output_peak": 0.37372109293937683,
+      "rms_attenuation_db": 0.9956077599690559
+    },
+    "vi_004_keys_events_snr00": {
+      "enhancement_seconds": 0.10506016300001875,
+      "resample_seconds": 0.022541703999991114,
+      "output_peak": 0.37538012862205505,
+      "rms_attenuation_db": 1.3232460188205457
+    },
+    "vi_004_keys_events_snr05": {
+      "enhancement_seconds": 0.09877636300001313,
+      "resample_seconds": 0.02139466099998799,
+      "output_peak": 0.3753150999546051,
+      "rms_attenuation_db": 1.223331240681751
+    },
+    "vi_004_keys_events_snr10": {
+      "enhancement_seconds": 0.10844220200004884,
+      "resample_seconds": 0.023201163999999608,
+      "output_peak": 0.37532949447631836,
+      "rms_attenuation_db": 1.168504211535457
+    },
+    "vi_004_pageturn_events_snr00": {
+      "enhancement_seconds": 0.1186798969999927,
+      "resample_seconds": 0.027906585999971867,
+      "output_peak": 0.16736845672130585,
+      "rms_attenuation_db": 1.0979095582166833
+    },
+    "vi_004_pageturn_events_snr05": {
+      "enhancement_seconds": 0.11672665999998344,
+      "resample_seconds": 0.026426948000050743,
+      "output_peak": 0.2927268147468567,
+      "rms_attenuation_db": 1.1233320684567634
+    },
+    "vi_004_pageturn_events_snr10": {
+      "enhancement_seconds": 0.11427402100002837,
+      "resample_seconds": 0.02238664899999776,
+      "output_peak": 0.3753131628036499,
+      "rms_attenuation_db": 1.0694535097531328
+    },
+    "vi_004_phone_events_snr00": {
+      "enhancement_seconds": 0.10504157799999803,
+      "resample_seconds": 0.02303294000000733,
+      "output_peak": 0.37534627318382263,
+      "rms_attenuation_db": 1.3624928559638008
+    },
+    "vi_004_phone_events_snr05": {
+      "enhancement_seconds": 0.10312500899999577,
+      "resample_seconds": 0.022011450000036348,
+      "output_peak": 0.37534627318382263,
+      "rms_attenuation_db": 1.089141230887242
+    },
+    "vi_004_phone_events_snr10": {
+      "enhancement_seconds": 0.10158532000002651,
+      "resample_seconds": 0.02242758599999206,
+      "output_peak": 0.37534627318382263,
+      "rms_attenuation_db": 0.9992693313881065
+    },
+    "vi_005_clean": {
+      "enhancement_seconds": 0.06760720500000161,
+      "resample_seconds": 0.015170737999994799,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 0.876193869141108
+    },
+    "vi_005_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.0667169310000304,
+      "resample_seconds": 0.01464107200001763,
+      "output_peak": 0.20401203632354736,
+      "rms_attenuation_db": 3.8231692122718712
+    },
+    "vi_005_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.06827120399998421,
+      "resample_seconds": 0.01467355699998052,
+      "output_peak": 0.322672039270401,
+      "rms_attenuation_db": 2.2622153585127984
+    },
+    "vi_005_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.0659645040000214,
+      "resample_seconds": 0.014235600999995768,
+      "output_peak": 0.31702274084091187,
+      "rms_attenuation_db": 2.7700058712820956
+    },
+    "vi_005_keyboard_events_snr00": {
+      "enhancement_seconds": 0.06731759300004114,
+      "resample_seconds": 0.014717117000031976,
+      "output_peak": 0.23884180188179016,
+      "rms_attenuation_db": 2.0018482139122518
+    },
+    "vi_005_keyboard_events_snr05": {
+      "enhancement_seconds": 0.06991068799999312,
+      "resample_seconds": 0.01509676099999524,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.4668960890865534
+    },
+    "vi_005_keyboard_events_snr10": {
+      "enhancement_seconds": 0.06844962000002397,
+      "resample_seconds": 0.014798030000008566,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.083090154535319
+    },
+    "vi_005_knock_events_snr00": {
+      "enhancement_seconds": 0.06688071199999968,
+      "resample_seconds": 0.013882018999993306,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.6210079908573252
+    },
+    "vi_005_knock_events_snr05": {
+      "enhancement_seconds": 0.06977309600000581,
+      "resample_seconds": 0.014469014999974661,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.2312653085084444
+    },
+    "vi_005_knock_events_snr10": {
+      "enhancement_seconds": 0.07121122099999866,
+      "resample_seconds": 0.014640298000017538,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.0390787662257712
+    },
+    "vi_005_doorslam_events_snr00": {
+      "enhancement_seconds": 0.06821315600001299,
+      "resample_seconds": 0.014777100999992854,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 2.7971599898194572
+    },
+    "vi_005_doorslam_events_snr05": {
+      "enhancement_seconds": 0.07076515400001426,
+      "resample_seconds": 0.01577628799998365,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 2.5053047653383516
+    },
+    "vi_005_doorslam_events_snr10": {
+      "enhancement_seconds": 0.06609812900001089,
+      "resample_seconds": 0.015469740000014554,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 2.032955966599444
+    },
+    "vi_005_keys_events_snr00": {
+      "enhancement_seconds": 0.06647463600000947,
+      "resample_seconds": 0.01487206500002003,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 0.9877107503073099
+    },
+    "vi_005_keys_events_snr05": {
+      "enhancement_seconds": 0.06441734099996665,
+      "resample_seconds": 0.014189597000040521,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 0.9085390046739296
+    },
+    "vi_005_keys_events_snr10": {
+      "enhancement_seconds": 0.06519763100004639,
+      "resample_seconds": 0.014825097999960235,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 0.8824203254977524
+    },
+    "vi_005_pageturn_events_snr00": {
+      "enhancement_seconds": 0.0692852720000019,
+      "resample_seconds": 0.014598489999968933,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 2.1377162805072976
+    },
+    "vi_005_pageturn_events_snr05": {
+      "enhancement_seconds": 0.06665971099999979,
+      "resample_seconds": 0.014622123999970427,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.3188539699615727
+    },
+    "vi_005_pageturn_events_snr10": {
+      "enhancement_seconds": 0.0675641500000097,
+      "resample_seconds": 0.015324343000031604,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.176510745136592
+    },
+    "vi_005_phone_events_snr00": {
+      "enhancement_seconds": 0.0685729950000109,
+      "resample_seconds": 0.015182889000016075,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 2.1308870760901373
+    },
+    "vi_005_phone_events_snr05": {
+      "enhancement_seconds": 0.07016787899999599,
+      "resample_seconds": 0.015083792999973866,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.5196273402332259
+    },
+    "vi_005_phone_events_snr10": {
+      "enhancement_seconds": 0.06983413399996152,
+      "resample_seconds": 0.01615036099997269,
+      "output_peak": 0.3141537010669708,
+      "rms_attenuation_db": 1.3923696541764339
+    },
+    "vi_006_clean": {
+      "enhancement_seconds": 0.065481990999956,
+      "resample_seconds": 0.012125898000022062,
+      "output_peak": 0.25273236632347107,
+      "rms_attenuation_db": 4.048361127648332
+    },
+    "vi_006_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.05627347199998667,
+      "resample_seconds": 0.012124997000000803,
+      "output_peak": 0.11704465001821518,
+      "rms_attenuation_db": 4.035340801389178
+    },
+    "vi_006_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.05539650800000118,
+      "resample_seconds": 0.012134681000020464,
+      "output_peak": 0.20041589438915253,
+      "rms_attenuation_db": 3.518677359774819
+    },
+    "vi_006_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.05821844300004386,
+      "resample_seconds": 0.012625864999961323,
+      "output_peak": 0.21734248101711273,
+      "rms_attenuation_db": 4.428709467281714
+    },
+    "vi_006_keyboard_events_snr00": {
+      "enhancement_seconds": 0.06730844699995941,
+      "resample_seconds": 0.012726965000013024,
+      "output_peak": 0.13113459944725037,
+      "rms_attenuation_db": 3.4737688957268347
+    },
+    "vi_006_keyboard_events_snr05": {
+      "enhancement_seconds": 0.05992842300003076,
+      "resample_seconds": 0.011451663999991979,
+      "output_peak": 0.23345351219177246,
+      "rms_attenuation_db": 3.271107084254435
+    },
+    "vi_006_keyboard_events_snr10": {
+      "enhancement_seconds": 0.05674597799998082,
+      "resample_seconds": 0.011613750999970307,
+      "output_peak": 0.25580480694770813,
+      "rms_attenuation_db": 3.1262716346134085
+    },
+    "vi_006_knock_events_snr00": {
+      "enhancement_seconds": 0.05946270699996603,
+      "resample_seconds": 0.012177301000008356,
+      "output_peak": 0.2546790540218353,
+      "rms_attenuation_db": 3.6009171590224915
+    },
+    "vi_006_knock_events_snr05": {
+      "enhancement_seconds": 0.05912202199999683,
+      "resample_seconds": 0.013734338999995543,
+      "output_peak": 0.2549208104610443,
+      "rms_attenuation_db": 3.3867938016755037
+    },
+    "vi_006_knock_events_snr10": {
+      "enhancement_seconds": 0.05873287999997956,
+      "resample_seconds": 0.012289572000042881,
+      "output_peak": 0.2537286579608917,
+      "rms_attenuation_db": 3.819071087998811
+    },
+    "vi_006_doorslam_events_snr00": {
+      "enhancement_seconds": 0.05959681299998465,
+      "resample_seconds": 0.013387432999991233,
+      "output_peak": 0.2510395050048828,
+      "rms_attenuation_db": 4.418791780535181
+    },
+    "vi_006_doorslam_events_snr05": {
+      "enhancement_seconds": 0.061036505000004126,
+      "resample_seconds": 0.014039303999993535,
+      "output_peak": 0.2520512342453003,
+      "rms_attenuation_db": 4.106359276919028
+    },
+    "vi_006_doorslam_events_snr10": {
+      "enhancement_seconds": 0.06141883500004042,
+      "resample_seconds": 0.013191097999992962,
+      "output_peak": 0.25307831168174744,
+      "rms_attenuation_db": 3.855418421787649
+    },
+    "vi_006_keys_events_snr00": {
+      "enhancement_seconds": 0.05805203599999231,
+      "resample_seconds": 0.013234586999999465,
+      "output_peak": 0.20337073504924774,
+      "rms_attenuation_db": 5.7558012191920795
+    },
+    "vi_006_keys_events_snr05": {
+      "enhancement_seconds": 0.05963799900001732,
+      "resample_seconds": 0.012229396999998698,
+      "output_peak": 0.21300028264522552,
+      "rms_attenuation_db": 5.1986593199643885
+    },
+    "vi_006_keys_events_snr10": {
+      "enhancement_seconds": 0.05769892199998594,
+      "resample_seconds": 0.012426871000002393,
+      "output_peak": 0.222600057721138,
+      "rms_attenuation_db": 4.967359710674873
+    },
+    "vi_006_pageturn_events_snr00": {
+      "enhancement_seconds": 0.058362922000014805,
+      "resample_seconds": 0.012606002999973498,
+      "output_peak": 0.2188570350408554,
+      "rms_attenuation_db": 3.5894470597842494
+    },
+    "vi_006_pageturn_events_snr05": {
+      "enhancement_seconds": 0.05959961700000349,
+      "resample_seconds": 0.012375986999984434,
+      "output_peak": 0.25666260719299316,
+      "rms_attenuation_db": 3.2835118294339587
+    },
+    "vi_006_pageturn_events_snr10": {
+      "enhancement_seconds": 0.05852310399995986,
+      "resample_seconds": 0.012094361999970715,
+      "output_peak": 0.2568296492099762,
+      "rms_attenuation_db": 3.124690474005875
+    },
+    "vi_006_phone_events_snr00": {
+      "enhancement_seconds": 0.05990716599995949,
+      "resample_seconds": 0.013460837000025094,
+      "output_peak": 0.23301184177398682,
+      "rms_attenuation_db": 5.1303892619218505
+    },
+    "vi_006_phone_events_snr05": {
+      "enhancement_seconds": 0.058997168000018974,
+      "resample_seconds": 0.012272015000007741,
+      "output_peak": 0.23721955716609955,
+      "rms_attenuation_db": 4.507684315114671
+    },
+    "vi_006_phone_events_snr10": {
+      "enhancement_seconds": 0.05764991600000258,
+      "resample_seconds": 0.011481319999973039,
+      "output_peak": 0.23824207484722137,
+      "rms_attenuation_db": 4.35973631225426
+    },
+    "vi_007_clean": {
+      "enhancement_seconds": 0.10274089600000025,
+      "resample_seconds": 0.019992886000011367,
+      "output_peak": 0.23525990545749664,
+      "rms_attenuation_db": 3.4317912969113844
+    },
+    "vi_007_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.09735010100001773,
+      "resample_seconds": 0.020281836000037856,
+      "output_peak": 0.1765602082014084,
+      "rms_attenuation_db": 5.904466894936168
+    },
+    "vi_007_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.09815338300001031,
+      "resample_seconds": 0.019193919999963782,
+      "output_peak": 0.22028274834156036,
+      "rms_attenuation_db": 4.650448246392938
+    },
+    "vi_007_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.09649009200001046,
+      "resample_seconds": 0.02044213800002126,
+      "output_peak": 0.21867698431015015,
+      "rms_attenuation_db": 4.354654246449494
+    },
+    "vi_007_keyboard_events_snr00": {
+      "enhancement_seconds": 0.09956299099997068,
+      "resample_seconds": 0.020423088999962147,
+      "output_peak": 0.214043527841568,
+      "rms_attenuation_db": 3.3387701867883863
+    },
+    "vi_007_keyboard_events_snr05": {
+      "enhancement_seconds": 0.09130571700001155,
+      "resample_seconds": 0.019400533000009546,
+      "output_peak": 0.24158740043640137,
+      "rms_attenuation_db": 3.136224827904722
+    },
+    "vi_007_keyboard_events_snr10": {
+      "enhancement_seconds": 0.10068503399998008,
+      "resample_seconds": 0.020843705999993745,
+      "output_peak": 0.22615379095077515,
+      "rms_attenuation_db": 3.7410659147009655
+    },
+    "vi_007_knock_events_snr00": {
+      "enhancement_seconds": 0.1038065710000069,
+      "resample_seconds": 0.0202706439999929,
+      "output_peak": 0.2308489978313446,
+      "rms_attenuation_db": 4.014900200113835
+    },
+    "vi_007_knock_events_snr05": {
+      "enhancement_seconds": 0.09952049699995769,
+      "resample_seconds": 0.02039093100000855,
+      "output_peak": 0.22819766402244568,
+      "rms_attenuation_db": 3.782540065682316
+    },
+    "vi_007_knock_events_snr10": {
+      "enhancement_seconds": 0.0959524390000297,
+      "resample_seconds": 0.021218851000014638,
+      "output_peak": 0.23229166865348816,
+      "rms_attenuation_db": 3.628058899840079
+    },
+    "vi_007_doorslam_events_snr00": {
+      "enhancement_seconds": 0.09973673100000724,
+      "resample_seconds": 0.019539917999964018,
+      "output_peak": 0.20772330462932587,
+      "rms_attenuation_db": 5.147983835987552
+    },
+    "vi_007_doorslam_events_snr05": {
+      "enhancement_seconds": 0.09550492899995788,
+      "resample_seconds": 0.020584141999961503,
+      "output_peak": 0.2230335772037506,
+      "rms_attenuation_db": 4.315236188101923
+    },
+    "vi_007_doorslam_events_snr10": {
+      "enhancement_seconds": 0.10135498900001494,
+      "resample_seconds": 0.020063832999994702,
+      "output_peak": 0.23060061037540436,
+      "rms_attenuation_db": 3.6184607204865253
+    },
+    "vi_007_keys_events_snr00": {
+      "enhancement_seconds": 0.09456063800001857,
+      "resample_seconds": 0.020122903000014958,
+      "output_peak": 0.18917836248874664,
+      "rms_attenuation_db": 5.457707091329542
+    },
+    "vi_007_keys_events_snr05": {
+      "enhancement_seconds": 0.09928485099999307,
+      "resample_seconds": 0.020899607999979253,
+      "output_peak": 0.18917766213417053,
+      "rms_attenuation_db": 5.308718982558465
+    },
+    "vi_007_keys_events_snr10": {
+      "enhancement_seconds": 0.09803973399999677,
+      "resample_seconds": 0.020459736000020712,
+      "output_peak": 0.1896529197692871,
+      "rms_attenuation_db": 5.249916103815488
+    },
+    "vi_007_pageturn_events_snr00": {
+      "enhancement_seconds": 0.10126278699999602,
+      "resample_seconds": 0.020078105999971285,
+      "output_peak": 0.1987062692642212,
+      "rms_attenuation_db": 6.231504914825459
+    },
+    "vi_007_pageturn_events_snr05": {
+      "enhancement_seconds": 0.09754945100002033,
+      "resample_seconds": 0.020839101000035498,
+      "output_peak": 0.19854013621807098,
+      "rms_attenuation_db": 5.7968546336032105
+    },
+    "vi_007_pageturn_events_snr10": {
+      "enhancement_seconds": 0.09826444300000503,
+      "resample_seconds": 0.01984998800003268,
+      "output_peak": 0.19186919927597046,
+      "rms_attenuation_db": 5.6314370036622785
+    },
+    "vi_007_phone_events_snr00": {
+      "enhancement_seconds": 0.0962230509999813,
+      "resample_seconds": 0.020412550999992618,
+      "output_peak": 0.24501124024391174,
+      "rms_attenuation_db": 3.603105349660926
+    },
+    "vi_007_phone_events_snr05": {
+      "enhancement_seconds": 0.09948345300000483,
+      "resample_seconds": 0.020756976999962262,
+      "output_peak": 0.24510574340820312,
+      "rms_attenuation_db": 3.1671719588279394
+    },
+    "vi_007_phone_events_snr10": {
+      "enhancement_seconds": 0.09854897899998605,
+      "resample_seconds": 0.020868016999997963,
+      "output_peak": 0.24525730311870575,
+      "rms_attenuation_db": 3.005357077501473
+    },
+    "vi_008_clean": {
+      "enhancement_seconds": 0.0759160970000039,
+      "resample_seconds": 0.014196727000012288,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.40599860447157765
+    },
+    "vi_008_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.0656415789999869,
+      "resample_seconds": 0.014216691000001447,
+      "output_peak": 0.196280375123024,
+      "rms_attenuation_db": 3.6438308755054907
+    },
+    "vi_008_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.06670254200003001,
+      "resample_seconds": 0.014995618999989802,
+      "output_peak": 0.3465830683708191,
+      "rms_attenuation_db": 1.701429123906386
+    },
+    "vi_008_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.06562405500000068,
+      "resample_seconds": 0.01379990500004169,
+      "output_peak": 0.44091087579727173,
+      "rms_attenuation_db": 0.8518281228446949
+    },
+    "vi_008_keyboard_events_snr00": {
+      "enhancement_seconds": 0.0623454670000001,
+      "resample_seconds": 0.01223882900001172,
+      "output_peak": 0.49145734310150146,
+      "rms_attenuation_db": 1.414375676222651
+    },
+    "vi_008_keyboard_events_snr05": {
+      "enhancement_seconds": 0.06430770499997607,
+      "resample_seconds": 0.012367618999974184,
+      "output_peak": 0.497246652841568,
+      "rms_attenuation_db": 0.7335554137232141
+    },
+    "vi_008_keyboard_events_snr10": {
+      "enhancement_seconds": 0.06410291499997811,
+      "resample_seconds": 0.012031518000014785,
+      "output_peak": 0.5042661428451538,
+      "rms_attenuation_db": 0.4573590741778861
+    },
+    "vi_008_knock_events_snr00": {
+      "enhancement_seconds": 0.06201274700003978,
+      "resample_seconds": 0.01248822999997401,
+      "output_peak": 0.4967254400253296,
+      "rms_attenuation_db": 1.2889958267400967
+    },
+    "vi_008_knock_events_snr05": {
+      "enhancement_seconds": 0.06455470900004912,
+      "resample_seconds": 0.013954306000016459,
+      "output_peak": 0.5041629076004028,
+      "rms_attenuation_db": 0.7132799340753281
+    },
+    "vi_008_knock_events_snr10": {
+      "enhancement_seconds": 0.0630883499999868,
+      "resample_seconds": 0.013062477999994826,
+      "output_peak": 0.5078956484794617,
+      "rms_attenuation_db": 0.49724251695769883
+    },
+    "vi_008_doorslam_events_snr00": {
+      "enhancement_seconds": 0.06547131500002479,
+      "resample_seconds": 0.01398717699998997,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.8729496007554854
+    },
+    "vi_008_doorslam_events_snr05": {
+      "enhancement_seconds": 0.06601911299998164,
+      "resample_seconds": 0.014195636000010836,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.5787339534800305
+    },
+    "vi_008_doorslam_events_snr10": {
+      "enhancement_seconds": 0.0648208220000015,
+      "resample_seconds": 0.013664188000007016,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.46306573403436907
+    },
+    "vi_008_keys_events_snr00": {
+      "enhancement_seconds": 0.06490888600001199,
+      "resample_seconds": 0.013936581999985265,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.9019971722822845
+    },
+    "vi_008_keys_events_snr05": {
+      "enhancement_seconds": 0.06390984799998023,
+      "resample_seconds": 0.013075701999980538,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.5716892887510128
+    },
+    "vi_008_keys_events_snr10": {
+      "enhancement_seconds": 0.06803753599996298,
+      "resample_seconds": 0.015413907000038307,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.4591271895706147
+    },
+    "vi_008_pageturn_events_snr00": {
+      "enhancement_seconds": 0.0653597279999758,
+      "resample_seconds": 0.015116309999996247,
+      "output_peak": 0.3391755521297455,
+      "rms_attenuation_db": 0.9097287216639158
+    },
+    "vi_008_pageturn_events_snr05": {
+      "enhancement_seconds": 0.06566610599998057,
+      "resample_seconds": 0.014176680000048236,
+      "output_peak": 0.48224061727523804,
+      "rms_attenuation_db": 0.643944225377159
+    },
+    "vi_008_pageturn_events_snr10": {
+      "enhancement_seconds": 0.0647578829999702,
+      "resample_seconds": 0.014486762999979419,
+      "output_peak": 0.4981820285320282,
+      "rms_attenuation_db": 0.49203463416445103
+    },
+    "vi_008_phone_events_snr00": {
+      "enhancement_seconds": 0.061127377000048,
+      "resample_seconds": 0.013382734000003893,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 1.1330757034285484
+    },
+    "vi_008_phone_events_snr05": {
+      "enhancement_seconds": 0.06504003999998531,
+      "resample_seconds": 0.013771415999997316,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.6624285535511933
+    },
+    "vi_008_phone_events_snr10": {
+      "enhancement_seconds": 0.06511323800003765,
+      "resample_seconds": 0.012578528999995342,
+      "output_peak": 0.5079124569892883,
+      "rms_attenuation_db": 0.494683182235569
+    },
+    "vi_009_clean": {
+      "enhancement_seconds": 0.06912608199996839,
+      "resample_seconds": 0.01486338000000842,
+      "output_peak": 0.28396981954574585,
+      "rms_attenuation_db": 1.531386661676097
+    },
+    "vi_009_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.06909534600004008,
+      "resample_seconds": 0.015565956000045844,
+      "output_peak": 0.16861163079738617,
+      "rms_attenuation_db": 4.128549434038565
+    },
+    "vi_009_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.06649854400001232,
+      "resample_seconds": 0.01523767300000145,
+      "output_peak": 0.28715166449546814,
+      "rms_attenuation_db": 2.1839940595417877
+    },
+    "vi_009_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.0652057170000262,
+      "resample_seconds": 0.01365710299995726,
+      "output_peak": 0.27971479296684265,
+      "rms_attenuation_db": 2.5042270230475987
+    },
+    "vi_009_keyboard_events_snr00": {
+      "enhancement_seconds": 0.06527102800004059,
+      "resample_seconds": 0.01410435600001847,
+      "output_peak": 0.2646971344947815,
+      "rms_attenuation_db": 2.9552337380819975
+    },
+    "vi_009_keyboard_events_snr05": {
+      "enhancement_seconds": 0.0660529940000174,
+      "resample_seconds": 0.013322859000027165,
+      "output_peak": 0.28985655307769775,
+      "rms_attenuation_db": 1.9541268624285442
+    },
+    "vi_009_keyboard_events_snr10": {
+      "enhancement_seconds": 0.06429036600002291,
+      "resample_seconds": 0.013747880000039459,
+      "output_peak": 0.2878517210483551,
+      "rms_attenuation_db": 1.5766528087594711
+    },
+    "vi_009_knock_events_snr00": {
+      "enhancement_seconds": 0.06591203099998211,
+      "resample_seconds": 0.014212977999989107,
+      "output_peak": 0.2860657572746277,
+      "rms_attenuation_db": 1.829321782051391
+    },
+    "vi_009_knock_events_snr05": {
+      "enhancement_seconds": 0.06460483600000089,
+      "resample_seconds": 0.013122453999983463,
+      "output_peak": 0.28350114822387695,
+      "rms_attenuation_db": 2.343750415974139
+    },
+    "vi_009_knock_events_snr10": {
+      "enhancement_seconds": 0.06606667499994501,
+      "resample_seconds": 0.014744685999971807,
+      "output_peak": 0.2837417423725128,
+      "rms_attenuation_db": 2.1867663342627357
+    },
+    "vi_009_doorslam_events_snr00": {
+      "enhancement_seconds": 0.06738431899998432,
+      "resample_seconds": 0.014146290999974553,
+      "output_peak": 0.2829655706882477,
+      "rms_attenuation_db": 1.9242827064275376
+    },
+    "vi_009_doorslam_events_snr05": {
+      "enhancement_seconds": 0.06698259099999859,
+      "resample_seconds": 0.014349777000006725,
+      "output_peak": 0.28329989314079285,
+      "rms_attenuation_db": 1.7697296600329593
+    },
+    "vi_009_doorslam_events_snr10": {
+      "enhancement_seconds": 0.06939725999995972,
+      "resample_seconds": 0.015535349000003862,
+      "output_peak": 0.28364285826683044,
+      "rms_attenuation_db": 1.6669265723188045
+    },
+    "vi_009_keys_events_snr00": {
+      "enhancement_seconds": 0.06584342000002152,
+      "resample_seconds": 0.01471338400000377,
+      "output_peak": 0.2424011528491974,
+      "rms_attenuation_db": 1.5415354695491026
+    },
+    "vi_009_keys_events_snr05": {
+      "enhancement_seconds": 0.0661133020000193,
+      "resample_seconds": 0.014014389999999821,
+      "output_peak": 0.28396981954574585,
+      "rms_attenuation_db": 1.5623681161358627
+    },
+    "vi_009_keys_events_snr10": {
+      "enhancement_seconds": 0.06654283399996075,
+      "resample_seconds": 0.014572283000006792,
+      "output_peak": 0.28396981954574585,
+      "rms_attenuation_db": 1.5381138386203688
+    },
+    "vi_009_pageturn_events_snr00": {
+      "enhancement_seconds": 0.06590401700003667,
+      "resample_seconds": 0.014678645000003598,
+      "output_peak": 0.2224300652742386,
+      "rms_attenuation_db": 1.7008815775053598
+    },
+    "vi_009_pageturn_events_snr05": {
+      "enhancement_seconds": 0.0684321879999743,
+      "resample_seconds": 0.014330964000009772,
+      "output_peak": 0.28396981954574585,
+      "rms_attenuation_db": 1.649159854080514
+    },
+    "vi_009_pageturn_events_snr10": {
+      "enhancement_seconds": 0.0651519820000317,
+      "resample_seconds": 0.014039830999990954,
+      "output_peak": 0.28396981954574585,
+      "rms_attenuation_db": 1.5815349977618864
+    },
+    "vi_009_phone_events_snr00": {
+      "enhancement_seconds": 0.06693729099998791,
+      "resample_seconds": 0.0143545479999716,
+      "output_peak": 0.29672694206237793,
+      "rms_attenuation_db": 2.723664796032306
+    },
+    "vi_009_phone_events_snr05": {
+      "enhancement_seconds": 0.06893130100002054,
+      "resample_seconds": 0.014685219000000416,
+      "output_peak": 0.2945420444011688,
+      "rms_attenuation_db": 1.9268564674157604
+    },
+    "vi_009_phone_events_snr10": {
+      "enhancement_seconds": 0.06780314900004214,
+      "resample_seconds": 0.014785820000042804,
+      "output_peak": 0.29302364587783813,
+      "rms_attenuation_db": 1.6396307368891576
+    },
+    "vi_010_clean": {
+      "enhancement_seconds": 0.08502578200000244,
+      "resample_seconds": 0.01719374300000709,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.6602805938815598
+    },
+    "vi_010_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.08046517500002892,
+      "resample_seconds": 0.016951212999970267,
+      "output_peak": 0.3643723130226135,
+      "rms_attenuation_db": 4.356321785178208
+    },
+    "vi_010_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.07832723799998575,
+      "resample_seconds": 0.017125205000013466,
+      "output_peak": 0.48174628615379333,
+      "rms_attenuation_db": 2.6807515898218397
+    },
+    "vi_010_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07917820800003028,
+      "resample_seconds": 0.0186377399999742,
+      "output_peak": 0.4842883050441742,
+      "rms_attenuation_db": 1.345138850812372
+    },
+    "vi_010_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07762641499999745,
+      "resample_seconds": 0.016481395000027987,
+      "output_peak": 0.32014191150665283,
+      "rms_attenuation_db": 2.7649880978696295
+    },
+    "vi_010_keyboard_events_snr05": {
+      "enhancement_seconds": 0.07619495300002654,
+      "resample_seconds": 0.015841754000007313,
+      "output_peak": 0.4795381426811218,
+      "rms_attenuation_db": 1.9178600445530039
+    },
+    "vi_010_keyboard_events_snr10": {
+      "enhancement_seconds": 0.07962659200001099,
+      "resample_seconds": 0.016818714000010004,
+      "output_peak": 0.4771125018596649,
+      "rms_attenuation_db": 1.493198851784835
+    },
+    "vi_010_knock_events_snr00": {
+      "enhancement_seconds": 0.07800423300000148,
+      "resample_seconds": 0.01715605599997616,
+      "output_peak": 0.46925199031829834,
+      "rms_attenuation_db": 2.2480699171875127
+    },
+    "vi_010_knock_events_snr05": {
+      "enhancement_seconds": 0.07808399999998983,
+      "resample_seconds": 0.016907893999984935,
+      "output_peak": 0.4687334895133972,
+      "rms_attenuation_db": 1.4716445127806843
+    },
+    "vi_010_knock_events_snr10": {
+      "enhancement_seconds": 0.07622217499999806,
+      "resample_seconds": 0.016526768999995056,
+      "output_peak": 0.4693141579627991,
+      "rms_attenuation_db": 1.022568575477267
+    },
+    "vi_010_doorslam_events_snr00": {
+      "enhancement_seconds": 0.07896000400000958,
+      "resample_seconds": 0.017317056000024422,
+      "output_peak": 0.477718710899353,
+      "rms_attenuation_db": 1.1636405467685893
+    },
+    "vi_010_doorslam_events_snr05": {
+      "enhancement_seconds": 0.07852509000002783,
+      "resample_seconds": 0.016278437999972084,
+      "output_peak": 0.47772443294525146,
+      "rms_attenuation_db": 0.8642447693355232
+    },
+    "vi_010_doorslam_events_snr10": {
+      "enhancement_seconds": 0.07988173899997264,
+      "resample_seconds": 0.017143750000002456,
+      "output_peak": 0.47733697295188904,
+      "rms_attenuation_db": 0.7760680210097843
+    },
+    "vi_010_keys_events_snr00": {
+      "enhancement_seconds": 0.07968164799996202,
+      "resample_seconds": 0.017396269000016673,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.781268327501375
+    },
+    "vi_010_keys_events_snr05": {
+      "enhancement_seconds": 0.07966610899995885,
+      "resample_seconds": 0.016806894000012562,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.7132668134033547
+    },
+    "vi_010_keys_events_snr10": {
+      "enhancement_seconds": 0.07957517500000222,
+      "resample_seconds": 0.01684924400001364,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.6890181163334174
+    },
+    "vi_010_pageturn_events_snr00": {
+      "enhancement_seconds": 0.07872933400000193,
+      "resample_seconds": 0.016616961000011088,
+      "output_peak": 0.36798563599586487,
+      "rms_attenuation_db": 1.705374579950705
+    },
+    "vi_010_pageturn_events_snr05": {
+      "enhancement_seconds": 0.08214045800002623,
+      "resample_seconds": 0.016995763000011266,
+      "output_peak": 0.4408651292324066,
+      "rms_attenuation_db": 1.6646705596866016
+    },
+    "vi_010_pageturn_events_snr10": {
+      "enhancement_seconds": 0.07977953399995386,
+      "resample_seconds": 0.01667217200002824,
+      "output_peak": 0.4579378664493561,
+      "rms_attenuation_db": 1.5699131892439504
+    },
+    "vi_010_phone_events_snr00": {
+      "enhancement_seconds": 0.07903796300001886,
+      "resample_seconds": 0.01701942200003259,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 1.4680695895514355
+    },
+    "vi_010_phone_events_snr05": {
+      "enhancement_seconds": 0.08012120699999059,
+      "resample_seconds": 0.01783929199996237,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.9516663374930685
+    },
+    "vi_010_phone_events_snr10": {
+      "enhancement_seconds": 0.08026639099995236,
+      "resample_seconds": 0.016419814000016686,
+      "output_peak": 0.4834234416484833,
+      "rms_attenuation_db": 0.7676820086423608
+    },
+    "vi_011_clean": {
+      "enhancement_seconds": 0.08049190700000963,
+      "resample_seconds": 0.01619306399999232,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.614464143440584
+    },
+    "vi_011_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.07608015200003138,
+      "resample_seconds": 0.015020291999974233,
+      "output_peak": 0.21345187723636627,
+      "rms_attenuation_db": 5.366197571284347
+    },
+    "vi_011_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.07618109300000242,
+      "resample_seconds": 0.017108378999978413,
+      "output_peak": 0.35929781198501587,
+      "rms_attenuation_db": 3.3728178722383557
+    },
+    "vi_011_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07620642599999883,
+      "resample_seconds": 0.01578781699998899,
+      "output_peak": 0.3733533024787903,
+      "rms_attenuation_db": 2.492630067504917
+    },
+    "vi_011_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07346791500003746,
+      "resample_seconds": 0.015126649999956499,
+      "output_peak": 0.28077107667922974,
+      "rms_attenuation_db": 4.014592388131576
+    },
+    "vi_011_keyboard_events_snr05": {
+      "enhancement_seconds": 0.07471740599999066,
+      "resample_seconds": 0.015669987000023866,
+      "output_peak": 0.3529295027256012,
+      "rms_attenuation_db": 3.418794871873833
+    },
+    "vi_011_keyboard_events_snr10": {
+      "enhancement_seconds": 0.07305032299996128,
+      "resample_seconds": 0.015627783999946132,
+      "output_peak": 0.3275373876094818,
+      "rms_attenuation_db": 3.311769300300999
+    },
+    "vi_011_knock_events_snr00": {
+      "enhancement_seconds": 0.0766279829999803,
+      "resample_seconds": 0.016281179000031898,
+      "output_peak": 0.28917720913887024,
+      "rms_attenuation_db": 3.6349793978795675
+    },
+    "vi_011_knock_events_snr05": {
+      "enhancement_seconds": 0.07473365599997805,
+      "resample_seconds": 0.015758086000005278,
+      "output_peak": 0.2894017994403839,
+      "rms_attenuation_db": 3.5025634239734487
+    },
+    "vi_011_knock_events_snr10": {
+      "enhancement_seconds": 0.07519912900005465,
+      "resample_seconds": 0.014816596000002846,
+      "output_peak": 0.28872188925743103,
+      "rms_attenuation_db": 3.506530130403548
+    },
+    "vi_011_doorslam_events_snr00": {
+      "enhancement_seconds": 0.07371609699998771,
+      "resample_seconds": 0.015139669000006961,
+      "output_peak": 0.37729454040527344,
+      "rms_attenuation_db": 2.5675728112367002
+    },
+    "vi_011_doorslam_events_snr05": {
+      "enhancement_seconds": 0.0755234929999915,
+      "resample_seconds": 0.015542466999988847,
+      "output_peak": 0.37729543447494507,
+      "rms_attenuation_db": 2.1294543547147162
+    },
+    "vi_011_doorslam_events_snr10": {
+      "enhancement_seconds": 0.07209642799995208,
+      "resample_seconds": 0.015444434000016827,
+      "output_peak": 0.37727293372154236,
+      "rms_attenuation_db": 1.966500848333864
+    },
+    "vi_011_keys_events_snr00": {
+      "enhancement_seconds": 0.0743824699999891,
+      "resample_seconds": 0.015475296000033723,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.77795417308085
+    },
+    "vi_011_keys_events_snr05": {
+      "enhancement_seconds": 0.075602033999985,
+      "resample_seconds": 0.015398941000000832,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.996833577939449
+    },
+    "vi_011_keys_events_snr10": {
+      "enhancement_seconds": 0.0770747130000018,
+      "resample_seconds": 0.016316146999997727,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.997581092640272
+    },
+    "vi_011_pageturn_events_snr00": {
+      "enhancement_seconds": 0.07996746300000268,
+      "resample_seconds": 0.017674454000029982,
+      "output_peak": 0.3693273663520813,
+      "rms_attenuation_db": 3.395139531195154
+    },
+    "vi_011_pageturn_events_snr05": {
+      "enhancement_seconds": 0.08059036800000285,
+      "resample_seconds": 0.017993390000015097,
+      "output_peak": 0.37098684906959534,
+      "rms_attenuation_db": 3.197096635749279
+    },
+    "vi_011_pageturn_events_snr10": {
+      "enhancement_seconds": 0.07655332800004544,
+      "resample_seconds": 0.01766510999999582,
+      "output_peak": 0.36323851346969604,
+      "rms_attenuation_db": 4.329370466001545
+    },
+    "vi_011_phone_events_snr00": {
+      "enhancement_seconds": 0.07986700100002508,
+      "resample_seconds": 0.017338945999995303,
+      "output_peak": 0.2849358022212982,
+      "rms_attenuation_db": 5.187349576898802
+    },
+    "vi_011_phone_events_snr05": {
+      "enhancement_seconds": 0.07455737599997292,
+      "resample_seconds": 0.01586814300003425,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.49724314935163
+    },
+    "vi_011_phone_events_snr10": {
+      "enhancement_seconds": 0.07620760200001087,
+      "resample_seconds": 0.01712390699998423,
+      "output_peak": 0.2844722270965576,
+      "rms_attenuation_db": 4.506518620652314
+    },
+    "vi_012_clean": {
+      "enhancement_seconds": 0.10561708500000577,
+      "resample_seconds": 0.02099900199999638,
+      "output_peak": 0.47607558965682983,
+      "rms_attenuation_db": 0.30879516252620665
+    },
+    "vi_012_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.09692113500000232,
+      "resample_seconds": 0.021607786000004126,
+      "output_peak": 0.3459174335002899,
+      "rms_attenuation_db": 3.795947797619161
+    },
+    "vi_012_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.0956970629999887,
+      "resample_seconds": 0.020669363999957113,
+      "output_peak": 0.450647234916687,
+      "rms_attenuation_db": 1.8298102740510807
+    },
+    "vi_012_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.10025564900001882,
+      "resample_seconds": 0.02115733700003375,
+      "output_peak": 0.4588446319103241,
+      "rms_attenuation_db": 0.9534098005149477
+    },
+    "vi_012_keyboard_events_snr00": {
+      "enhancement_seconds": 0.10081415600001264,
+      "resample_seconds": 0.019880005999993955,
+      "output_peak": 0.3458777368068695,
+      "rms_attenuation_db": 1.254176931506602
+    },
+    "vi_012_keyboard_events_snr05": {
+      "enhancement_seconds": 0.09740876600000092,
+      "resample_seconds": 0.020433539999999084,
+      "output_peak": 0.4750891327857971,
+      "rms_attenuation_db": 0.774192073445076
+    },
+    "vi_012_keyboard_events_snr10": {
+      "enhancement_seconds": 0.09898373499999025,
+      "resample_seconds": 0.0213907770000219,
+      "output_peak": 0.4751112163066864,
+      "rms_attenuation_db": 0.6050100816794153
+    },
+    "vi_012_knock_events_snr00": {
+      "enhancement_seconds": 0.09755051399997683,
+      "resample_seconds": 0.020780419000004713,
+      "output_peak": 0.47260671854019165,
+      "rms_attenuation_db": 1.356932868145562
+    },
+    "vi_012_knock_events_snr05": {
+      "enhancement_seconds": 0.09932527900002697,
+      "resample_seconds": 0.02068236499997056,
+      "output_peak": 0.47277697920799255,
+      "rms_attenuation_db": 0.7791518649656736
+    },
+    "vi_012_knock_events_snr10": {
+      "enhancement_seconds": 0.09809318899999653,
+      "resample_seconds": 0.020195893999982673,
+      "output_peak": 0.4740091860294342,
+      "rms_attenuation_db": 0.5068946337779615
+    },
+    "vi_012_doorslam_events_snr00": {
+      "enhancement_seconds": 0.10110383899996123,
+      "resample_seconds": 0.019699872999979107,
+      "output_peak": 0.47754716873168945,
+      "rms_attenuation_db": 0.731544470454681
+    },
+    "vi_012_doorslam_events_snr05": {
+      "enhancement_seconds": 0.09823166900002889,
+      "resample_seconds": 0.021092342999963876,
+      "output_peak": 0.4766806662082672,
+      "rms_attenuation_db": 0.44429935536055687
+    },
+    "vi_012_doorslam_events_snr10": {
+      "enhancement_seconds": 0.09845708200003855,
+      "resample_seconds": 0.020980956000016704,
+      "output_peak": 0.47675108909606934,
+      "rms_attenuation_db": 0.3594511208172802
+    },
+    "vi_012_keys_events_snr00": {
+      "enhancement_seconds": 0.09921322799999643,
+      "resample_seconds": 0.02090719599999602,
+      "output_peak": 0.4750627279281616,
+      "rms_attenuation_db": 0.4802687548073153
+    },
+    "vi_012_keys_events_snr05": {
+      "enhancement_seconds": 0.09616333100001384,
+      "resample_seconds": 0.020561344999975972,
+      "output_peak": 0.47527778148651123,
+      "rms_attenuation_db": 0.36532457764496434
+    },
+    "vi_012_keys_events_snr10": {
+      "enhancement_seconds": 0.09783514299999752,
+      "resample_seconds": 0.020479865999959657,
+      "output_peak": 0.47544237971305847,
+      "rms_attenuation_db": 0.328407812400553
+    },
+    "vi_012_pageturn_events_snr00": {
+      "enhancement_seconds": 0.10052886400001171,
+      "resample_seconds": 0.020795856999995976,
+      "output_peak": 0.483706533908844,
+      "rms_attenuation_db": 1.6078639656589224
+    },
+    "vi_012_pageturn_events_snr05": {
+      "enhancement_seconds": 0.09860957099999723,
+      "resample_seconds": 0.02049611500001447,
+      "output_peak": 0.4758796691894531,
+      "rms_attenuation_db": 0.8108510666318686
+    },
+    "vi_012_pageturn_events_snr10": {
+      "enhancement_seconds": 0.09926189800000884,
+      "resample_seconds": 0.020943746000000374,
+      "output_peak": 0.4728080630302429,
+      "rms_attenuation_db": 0.5399757132452796
+    },
+    "vi_012_phone_events_snr00": {
+      "enhancement_seconds": 0.09869700199999443,
+      "resample_seconds": 0.02172872700003836,
+      "output_peak": 0.47607558965682983,
+      "rms_attenuation_db": 1.0690786251439626
+    },
+    "vi_012_phone_events_snr05": {
+      "enhancement_seconds": 0.09902366500000426,
+      "resample_seconds": 0.020563839000033113,
+      "output_peak": 0.47607558965682983,
+      "rms_attenuation_db": 0.6027618198659515
+    },
+    "vi_012_phone_events_snr10": {
+      "enhancement_seconds": 0.09608437100001765,
+      "resample_seconds": 0.02037941700001511,
+      "output_peak": 0.47607558965682983,
+      "rms_attenuation_db": 0.43573614438092323
+    },
+    "vi_013_clean": {
+      "enhancement_seconds": 0.09127754300004653,
+      "resample_seconds": 0.016864603999977135,
+      "output_peak": 0.4766175448894501,
+      "rms_attenuation_db": 0.4526760960667317
+    },
+    "vi_013_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.08236699100001488,
+      "resample_seconds": 0.016572312999983296,
+      "output_peak": 0.4769640564918518,
+      "rms_attenuation_db": 3.8892655710648496
+    },
+    "vi_013_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.08212773000002471,
+      "resample_seconds": 0.016595950000009907,
+      "output_peak": 0.4796503484249115,
+      "rms_attenuation_db": 1.805263531389019
+    },
+    "vi_013_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.08175258099998928,
+      "resample_seconds": 0.01670968799999173,
+      "output_peak": 0.48159998655319214,
+      "rms_attenuation_db": 0.8740376579873428
+    },
+    "vi_013_keyboard_events_snr00": {
+      "enhancement_seconds": 0.0821094320000384,
+      "resample_seconds": 0.019806765999987874,
+      "output_peak": 0.3064444065093994,
+      "rms_attenuation_db": 2.379025425167219
+    },
+    "vi_013_keyboard_events_snr05": {
+      "enhancement_seconds": 0.08290831400000798,
+      "resample_seconds": 0.015877545999956055,
+      "output_peak": 0.47922688722610474,
+      "rms_attenuation_db": 0.9025227446993476
+    },
+    "vi_013_keyboard_events_snr10": {
+      "enhancement_seconds": 0.081450942999993,
+      "resample_seconds": 0.017872843000020566,
+      "output_peak": 0.4714754521846771,
+      "rms_attenuation_db": 0.6226234389527805
+    },
+    "vi_013_knock_events_snr00": {
+      "enhancement_seconds": 0.08753766500001348,
+      "resample_seconds": 0.018293650000032358,
+      "output_peak": 0.4767754375934601,
+      "rms_attenuation_db": 1.516180742974165
+    },
+    "vi_013_knock_events_snr05": {
+      "enhancement_seconds": 0.0844542650000335,
+      "resample_seconds": 0.01791836800003921,
+      "output_peak": 0.471243679523468,
+      "rms_attenuation_db": 1.265901746057755
+    },
+    "vi_013_knock_events_snr10": {
+      "enhancement_seconds": 0.0875069900000085,
+      "resample_seconds": 0.018291562000001704,
+      "output_peak": 0.4418624937534332,
+      "rms_attenuation_db": 1.374199549141203
+    },
+    "vi_013_doorslam_events_snr00": {
+      "enhancement_seconds": 0.0885960130000285,
+      "resample_seconds": 0.018081892999987303,
+      "output_peak": 0.46224167943000793,
+      "rms_attenuation_db": 0.9157193048924955
+    },
+    "vi_013_doorslam_events_snr05": {
+      "enhancement_seconds": 0.08544719799999712,
+      "resample_seconds": 0.017881016999979238,
+      "output_peak": 0.4712807536125183,
+      "rms_attenuation_db": 0.5761314509952756
+    },
+    "vi_013_doorslam_events_snr10": {
+      "enhancement_seconds": 0.08529833199997938,
+      "resample_seconds": 0.018846087999975225,
+      "output_peak": 0.4746639132499695,
+      "rms_attenuation_db": 0.48665738579345663
+    },
+    "vi_013_keys_events_snr00": {
+      "enhancement_seconds": 0.08823265300003413,
+      "resample_seconds": 0.018783184999961122,
+      "output_peak": 0.47670838236808777,
+      "rms_attenuation_db": 0.811041321023412
+    },
+    "vi_013_keys_events_snr05": {
+      "enhancement_seconds": 0.08555351999996219,
+      "resample_seconds": 0.017790004999994835,
+      "output_peak": 0.47306305170059204,
+      "rms_attenuation_db": 0.6744829280684266
+    },
+    "vi_013_keys_events_snr10": {
+      "enhancement_seconds": 0.08585910299996158,
+      "resample_seconds": 0.018614861000003202,
+      "output_peak": 0.4701497256755829,
+      "rms_attenuation_db": 0.6167068423541923
+    },
+    "vi_013_pageturn_events_snr00": {
+      "enhancement_seconds": 0.08628786399998489,
+      "resample_seconds": 0.018818768000016917,
+      "output_peak": 0.4766175448894501,
+      "rms_attenuation_db": 1.263969961720922
+    },
+    "vi_013_pageturn_events_snr05": {
+      "enhancement_seconds": 0.08499277200002098,
+      "resample_seconds": 0.018853705000026366,
+      "output_peak": 0.4766175448894501,
+      "rms_attenuation_db": 0.7202454690199288
+    },
+    "vi_013_pageturn_events_snr10": {
+      "enhancement_seconds": 0.08650341799994976,
+      "resample_seconds": 0.01772767499994643,
+      "output_peak": 0.4766175448894501,
+      "rms_attenuation_db": 0.5402300760629376
+    },
+    "vi_013_phone_events_snr00": {
+      "enhancement_seconds": 0.08823418499997615,
+      "resample_seconds": 0.018890173999977833,
+      "output_peak": 0.47886595129966736,
+      "rms_attenuation_db": 0.9160338909876696
+    },
+    "vi_013_phone_events_snr05": {
+      "enhancement_seconds": 0.08624230999998872,
+      "resample_seconds": 0.01762357699999484,
+      "output_peak": 0.47933849692344666,
+      "rms_attenuation_db": 0.512806086851174
+    },
+    "vi_013_phone_events_snr10": {
+      "enhancement_seconds": 0.088570279999999,
+      "resample_seconds": 0.017535973000008198,
+      "output_peak": 0.4801207184791565,
+      "rms_attenuation_db": 0.3733861427974286
+    },
+    "vi_014_clean": {
+      "enhancement_seconds": 0.056697897999981706,
+      "resample_seconds": 0.00983755600003633,
+      "output_peak": 0.2669755518436432,
+      "rms_attenuation_db": 2.7892889765769775
+    },
+    "vi_014_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.04995529399997167,
+      "resample_seconds": 0.009916346000011345,
+      "output_peak": 0.24392904341220856,
+      "rms_attenuation_db": 4.021572205747905
+    },
+    "vi_014_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.048350985000013225,
+      "resample_seconds": 0.009928891000015483,
+      "output_peak": 0.28472134470939636,
+      "rms_attenuation_db": 3.142789767504425
+    },
+    "vi_014_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.04830868599998439,
+      "resample_seconds": 0.010226373000023159,
+      "output_peak": 0.26552918553352356,
+      "rms_attenuation_db": 3.7830786414706368
+    },
+    "vi_014_keyboard_events_snr00": {
+      "enhancement_seconds": 0.04865675099995315,
+      "resample_seconds": 0.009204661000012493,
+      "output_peak": 0.1939953863620758,
+      "rms_attenuation_db": 3.0727387907887236
+    },
+    "vi_014_keyboard_events_snr05": {
+      "enhancement_seconds": 0.04855022600003167,
+      "resample_seconds": 0.009705246999999417,
+      "output_peak": 0.3171791732311249,
+      "rms_attenuation_db": 3.2127217799307406
+    },
+    "vi_014_keyboard_events_snr10": {
+      "enhancement_seconds": 0.04810623699995631,
+      "resample_seconds": 0.009958463000032225,
+      "output_peak": 0.31638801097869873,
+      "rms_attenuation_db": 3.7514182408493575
+    },
+    "vi_014_knock_events_snr00": {
+      "enhancement_seconds": 0.04888775199998463,
+      "resample_seconds": 0.010063427000034153,
+      "output_peak": 0.3048321008682251,
+      "rms_attenuation_db": 4.140344147119964
+    },
+    "vi_014_knock_events_snr05": {
+      "enhancement_seconds": 0.047820249999972475,
+      "resample_seconds": 0.009895952999954716,
+      "output_peak": 0.2901431918144226,
+      "rms_attenuation_db": 4.391889149710672
+    },
+    "vi_014_knock_events_snr10": {
+      "enhancement_seconds": 0.049269686000002366,
+      "resample_seconds": 0.010062922000031449,
+      "output_peak": 0.27731308341026306,
+      "rms_attenuation_db": 4.568472799542152
+    },
+    "vi_014_doorslam_events_snr00": {
+      "enhancement_seconds": 0.047697658999993564,
+      "resample_seconds": 0.009889529000020048,
+      "output_peak": 0.2669755518436432,
+      "rms_attenuation_db": 3.951041197008607
+    },
+    "vi_014_doorslam_events_snr05": {
+      "enhancement_seconds": 0.04779065600001786,
+      "resample_seconds": 0.009970382000005884,
+      "output_peak": 0.2669755518436432,
+      "rms_attenuation_db": 3.618155462397841
+    },
+    "vi_014_doorslam_events_snr10": {
+      "enhancement_seconds": 0.04572122999996964,
+      "resample_seconds": 0.00951165500003981,
+      "output_peak": 0.2669755518436432,
+      "rms_attenuation_db": 3.3247127075832434
+    },
+    "vi_014_keys_events_snr00": {
+      "enhancement_seconds": 0.04534221000000116,
+      "resample_seconds": 0.009614848000012444,
+      "output_peak": 0.20651860535144806,
+      "rms_attenuation_db": 4.458632800384773
+    },
+    "vi_014_keys_events_snr05": {
+      "enhancement_seconds": 0.04644856099997696,
+      "resample_seconds": 0.010743592000039826,
+      "output_peak": 0.2799350619316101,
+      "rms_attenuation_db": 5.017544953667638
+    },
+    "vi_014_keys_events_snr10": {
+      "enhancement_seconds": 0.045491202999983216,
+      "resample_seconds": 0.010127151999995476,
+      "output_peak": 0.2804493010044098,
+      "rms_attenuation_db": 4.810727743598862
+    },
+    "vi_014_pageturn_events_snr00": {
+      "enhancement_seconds": 0.044543866000026355,
+      "resample_seconds": 0.009645124000030592,
+      "output_peak": 0.29422593116760254,
+      "rms_attenuation_db": 3.222201131383462
+    },
+    "vi_014_pageturn_events_snr05": {
+      "enhancement_seconds": 0.04533886799998754,
+      "resample_seconds": 0.010088273999997455,
+      "output_peak": 0.2982144057750702,
+      "rms_attenuation_db": 2.633237472388643
+    },
+    "vi_014_pageturn_events_snr10": {
+      "enhancement_seconds": 0.04484981100000596,
+      "resample_seconds": 0.009645540999997593,
+      "output_peak": 0.30159398913383484,
+      "rms_attenuation_db": 2.5705590938217346
+    },
+    "vi_014_phone_events_snr00": {
+      "enhancement_seconds": 0.044628627999998116,
+      "resample_seconds": 0.009163553000007596,
+      "output_peak": 0.3708103895187378,
+      "rms_attenuation_db": 2.896367530536972
+    },
+    "vi_014_phone_events_snr05": {
+      "enhancement_seconds": 0.04502867699994795,
+      "resample_seconds": 0.009751005999987683,
+      "output_peak": 0.3779626190662384,
+      "rms_attenuation_db": 1.5072585411537778
+    },
+    "vi_014_phone_events_snr10": {
+      "enhancement_seconds": 0.04276998500000673,
+      "resample_seconds": 0.009486465000009048,
+      "output_peak": 0.38267236948013306,
+      "rms_attenuation_db": 1.0469944937201596
+    },
+    "vi_015_clean": {
+      "enhancement_seconds": 0.08134113399995613,
+      "resample_seconds": 0.01687749600000643,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 0.6590918686314283
+    },
+    "vi_015_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.07452938000000131,
+      "resample_seconds": 0.017284146000008604,
+      "output_peak": 0.19756686687469482,
+      "rms_attenuation_db": 3.9732116943662783
+    },
+    "vi_015_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.07687980499997593,
+      "resample_seconds": 0.01688880300002893,
+      "output_peak": 0.33777913451194763,
+      "rms_attenuation_db": 1.9154866872926668
+    },
+    "vi_015_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07398530900002243,
+      "resample_seconds": 0.016326321000008193,
+      "output_peak": 0.36335697770118713,
+      "rms_attenuation_db": 1.0010343325943754
+    },
+    "vi_015_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07819704799999272,
+      "resample_seconds": 0.01698578200000611,
+      "output_peak": 0.3939521908760071,
+      "rms_attenuation_db": 1.7043115474316772
+    },
+    "vi_015_keyboard_events_snr05": {
+      "enhancement_seconds": 0.07859247400000413,
+      "resample_seconds": 0.01824644500004524,
+      "output_peak": 0.412994384765625,
+      "rms_attenuation_db": 0.8308455539167608
+    },
+    "vi_015_keyboard_events_snr10": {
+      "enhancement_seconds": 0.07772297899998648,
+      "resample_seconds": 0.016638682000007066,
+      "output_peak": 0.4151310324668884,
+      "rms_attenuation_db": 0.4983389908625301
+    },
+    "vi_015_knock_events_snr00": {
+      "enhancement_seconds": 0.07542368500003249,
+      "resample_seconds": 0.01780161300001737,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 1.0213020757846625
+    },
+    "vi_015_knock_events_snr05": {
+      "enhancement_seconds": 0.07594887099998004,
+      "resample_seconds": 0.016352314000016577,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 0.734207019938824
+    },
+    "vi_015_knock_events_snr10": {
+      "enhancement_seconds": 0.0775960090000467,
+      "resample_seconds": 0.017497869999999693,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 0.6848092344427514
+    },
+    "vi_015_doorslam_events_snr00": {
+      "enhancement_seconds": 0.08031799599996248,
+      "resample_seconds": 0.01721335600001339,
+      "output_peak": 0.38510963320732117,
+      "rms_attenuation_db": 1.4511407635159699
+    },
+    "vi_015_doorslam_events_snr05": {
+      "enhancement_seconds": 0.07760627300001488,
+      "resample_seconds": 0.0168979890000287,
+      "output_peak": 0.40130507946014404,
+      "rms_attenuation_db": 0.9113058010069346
+    },
+    "vi_015_doorslam_events_snr10": {
+      "enhancement_seconds": 0.08046048299996755,
+      "resample_seconds": 0.01674986099999387,
+      "output_peak": 0.41079509258270264,
+      "rms_attenuation_db": 0.7175359551604277
+    },
+    "vi_015_keys_events_snr00": {
+      "enhancement_seconds": 0.08014922099999922,
+      "resample_seconds": 0.016630911000049764,
+      "output_peak": 0.4164730906486511,
+      "rms_attenuation_db": 0.7288521261725278
+    },
+    "vi_015_keys_events_snr05": {
+      "enhancement_seconds": 0.0805364660000123,
+      "resample_seconds": 0.017100452000022415,
+      "output_peak": 0.4165108799934387,
+      "rms_attenuation_db": 0.6076959633364495
+    },
+    "vi_015_keys_events_snr10": {
+      "enhancement_seconds": 0.07853477700001577,
+      "resample_seconds": 0.016910563999999795,
+      "output_peak": 0.4155518114566803,
+      "rms_attenuation_db": 0.7492393303036835
+    },
+    "vi_015_pageturn_events_snr00": {
+      "enhancement_seconds": 0.0782338469999786,
+      "resample_seconds": 0.017016792999982044,
+      "output_peak": 0.35888978838920593,
+      "rms_attenuation_db": 2.0965796993537094
+    },
+    "vi_015_pageturn_events_snr05": {
+      "enhancement_seconds": 0.07858712799998102,
+      "resample_seconds": 0.016666246999989198,
+      "output_peak": 0.37615901231765747,
+      "rms_attenuation_db": 1.3132127926607418
+    },
+    "vi_015_pageturn_events_snr10": {
+      "enhancement_seconds": 0.0785056080000004,
+      "resample_seconds": 0.01658153700003595,
+      "output_peak": 0.3745478391647339,
+      "rms_attenuation_db": 1.0368768806994144
+    },
+    "vi_015_phone_events_snr00": {
+      "enhancement_seconds": 0.08035536099998808,
+      "resample_seconds": 0.017434224999988146,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 1.8841061693621137
+    },
+    "vi_015_phone_events_snr05": {
+      "enhancement_seconds": 0.0810649889999695,
+      "resample_seconds": 0.017332393000003776,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 1.087192718291399
+    },
+    "vi_015_phone_events_snr10": {
+      "enhancement_seconds": 0.08025587800000267,
+      "resample_seconds": 0.01622906500000454,
+      "output_peak": 0.4181142747402191,
+      "rms_attenuation_db": 0.7966847219579711
+    },
+    "vi_016_clean": {
+      "enhancement_seconds": 0.09118599300001051,
+      "resample_seconds": 0.018683081999995466,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.11258946387153328
+    },
+    "vi_016_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.10000944299997627,
+      "resample_seconds": 0.019000853000022744,
+      "output_peak": 0.3696478605270386,
+      "rms_attenuation_db": 4.207911308967254
+    },
+    "vi_016_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.08724731500001326,
+      "resample_seconds": 0.01775166499999159,
+      "output_peak": 0.4778020977973938,
+      "rms_attenuation_db": 1.9015273958697723
+    },
+    "vi_016_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.08106234999996786,
+      "resample_seconds": 0.01797617199997603,
+      "output_peak": 0.4763142764568329,
+      "rms_attenuation_db": 0.8122057948816777
+    },
+    "vi_016_keyboard_events_snr00": {
+      "enhancement_seconds": 0.08476042600000255,
+      "resample_seconds": 0.017617607000033786,
+      "output_peak": 0.31988972425460815,
+      "rms_attenuation_db": 0.8689222506506447
+    },
+    "vi_016_keyboard_events_snr05": {
+      "enhancement_seconds": 0.08648898799998506,
+      "resample_seconds": 0.018471065999960956,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.3695100903589751
+    },
+    "vi_016_keyboard_events_snr10": {
+      "enhancement_seconds": 0.08596786499998643,
+      "resample_seconds": 0.01843419400000812,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.19992408816964535
+    },
+    "vi_016_knock_events_snr00": {
+      "enhancement_seconds": 0.0861036839999656,
+      "resample_seconds": 0.01840916099996548,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 1.144402044187943
+    },
+    "vi_016_knock_events_snr05": {
+      "enhancement_seconds": 0.08386147400000254,
+      "resample_seconds": 0.017759339999997792,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.5629521591756578
+    },
+    "vi_016_knock_events_snr10": {
+      "enhancement_seconds": 0.08655463299999155,
+      "resample_seconds": 0.01779422100003103,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.28623310155976955
+    },
+    "vi_016_doorslam_events_snr00": {
+      "enhancement_seconds": 0.0809839280000233,
+      "resample_seconds": 0.01780036000002383,
+      "output_peak": 0.4795560836791992,
+      "rms_attenuation_db": 0.9978563747660617
+    },
+    "vi_016_doorslam_events_snr05": {
+      "enhancement_seconds": 0.08331786000002239,
+      "resample_seconds": 0.017102900999987014,
+      "output_peak": 0.4786538779735565,
+      "rms_attenuation_db": 0.47560882630577384
+    },
+    "vi_016_doorslam_events_snr10": {
+      "enhancement_seconds": 0.08316243500001974,
+      "resample_seconds": 0.016355595000050016,
+      "output_peak": 0.47798284888267517,
+      "rms_attenuation_db": 0.2673167189731065
+    },
+    "vi_016_keys_events_snr00": {
+      "enhancement_seconds": 0.08384214099999099,
+      "resample_seconds": 0.018089635000023918,
+      "output_peak": 0.47702714800834656,
+      "rms_attenuation_db": 0.5224970219592971
+    },
+    "vi_016_keys_events_snr05": {
+      "enhancement_seconds": 0.0855942329999948,
+      "resample_seconds": 0.018313430000034714,
+      "output_peak": 0.4770722985267639,
+      "rms_attenuation_db": 0.26441104826039313
+    },
+    "vi_016_keys_events_snr10": {
+      "enhancement_seconds": 0.08623518100000638,
+      "resample_seconds": 0.01935704900000701,
+      "output_peak": 0.47569990158081055,
+      "rms_attenuation_db": 0.18815536212462045
+    },
+    "vi_016_pageturn_events_snr00": {
+      "enhancement_seconds": 0.08647558999996363,
+      "resample_seconds": 0.017256745999986833,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 1.0316002156639057
+    },
+    "vi_016_pageturn_events_snr05": {
+      "enhancement_seconds": 0.08383714499996131,
+      "resample_seconds": 0.01777752599997484,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.3772668914424793
+    },
+    "vi_016_pageturn_events_snr10": {
+      "enhancement_seconds": 0.08456329300003063,
+      "resample_seconds": 0.017436747000033392,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.2066456744498883
+    },
+    "vi_016_phone_events_snr00": {
+      "enhancement_seconds": 0.08392558600002076,
+      "resample_seconds": 0.01713142500000231,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.8686471793941437
+    },
+    "vi_016_phone_events_snr05": {
+      "enhancement_seconds": 0.08327348599999596,
+      "resample_seconds": 0.018274027000018123,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.41116470074995465
+    },
+    "vi_016_phone_events_snr10": {
+      "enhancement_seconds": 0.0858230680000247,
+      "resample_seconds": 0.018466875000001437,
+      "output_peak": 0.4779111444950104,
+      "rms_attenuation_db": 0.23531800080876325
+    },
+    "vi_017_clean": {
+      "enhancement_seconds": 0.09050451600000997,
+      "resample_seconds": 0.017700708999996095,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.2551479408453687
+    },
+    "vi_017_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.08177474100000381,
+      "resample_seconds": 0.017063800999949308,
+      "output_peak": 0.2944730818271637,
+      "rms_attenuation_db": 4.061272294022864
+    },
+    "vi_017_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.08318205099999432,
+      "resample_seconds": 0.017673247999994146,
+      "output_peak": 0.44390901923179626,
+      "rms_attenuation_db": 1.8907851985363402
+    },
+    "vi_017_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.08377159899998787,
+      "resample_seconds": 0.01647010900001078,
+      "output_peak": 0.444294273853302,
+      "rms_attenuation_db": 0.8743030199285122
+    },
+    "vi_017_keyboard_events_snr00": {
+      "enhancement_seconds": 0.08213993200001823,
+      "resample_seconds": 0.017675412000016877,
+      "output_peak": 0.23351158201694489,
+      "rms_attenuation_db": 1.8442715226863236
+    },
+    "vi_017_keyboard_events_snr05": {
+      "enhancement_seconds": 0.08292040000003453,
+      "resample_seconds": 0.017619527000022117,
+      "output_peak": 0.4143812954425812,
+      "rms_attenuation_db": 0.8134165027656576
+    },
+    "vi_017_keyboard_events_snr10": {
+      "enhancement_seconds": 0.08234134799999993,
+      "resample_seconds": 0.016194960000007086,
+      "output_peak": 0.45691508054733276,
+      "rms_attenuation_db": 0.43258579698543276
+    },
+    "vi_017_knock_events_snr00": {
+      "enhancement_seconds": 0.08171000800001593,
+      "resample_seconds": 0.017752616999985094,
+      "output_peak": 0.4570316970348358,
+      "rms_attenuation_db": 0.568108338149101
+    },
+    "vi_017_knock_events_snr05": {
+      "enhancement_seconds": 0.08060276399999111,
+      "resample_seconds": 0.016849164000007022,
+      "output_peak": 0.4519403576850891,
+      "rms_attenuation_db": 0.3815173320272296
+    },
+    "vi_017_knock_events_snr10": {
+      "enhancement_seconds": 0.08082586299997274,
+      "resample_seconds": 0.01673417300003166,
+      "output_peak": 0.45066219568252563,
+      "rms_attenuation_db": 0.3146364815081742
+    },
+    "vi_017_doorslam_events_snr00": {
+      "enhancement_seconds": 0.08201700299997583,
+      "resample_seconds": 0.01735390399994685,
+      "output_peak": 0.438005656003952,
+      "rms_attenuation_db": 0.4651091836901552
+    },
+    "vi_017_doorslam_events_snr05": {
+      "enhancement_seconds": 0.08272955400002502,
+      "resample_seconds": 0.018003816000032202,
+      "output_peak": 0.44421449303627014,
+      "rms_attenuation_db": 0.3385130578063509
+    },
+    "vi_017_doorslam_events_snr10": {
+      "enhancement_seconds": 0.08316471500000944,
+      "resample_seconds": 0.017084179999983462,
+      "output_peak": 0.4459289610385895,
+      "rms_attenuation_db": 0.2890505563273655
+    },
+    "vi_017_keys_events_snr00": {
+      "enhancement_seconds": 0.08084353599997485,
+      "resample_seconds": 0.017290064999997412,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.698029580098875
+    },
+    "vi_017_keys_events_snr05": {
+      "enhancement_seconds": 0.08184551099998316,
+      "resample_seconds": 0.017198351999979877,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.40542990460310946
+    },
+    "vi_017_keys_events_snr10": {
+      "enhancement_seconds": 0.07727942000002486,
+      "resample_seconds": 0.017243651000001137,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.307718631030227
+    },
+    "vi_017_pageturn_events_snr00": {
+      "enhancement_seconds": 0.08055728699997644,
+      "resample_seconds": 0.016902114000004076,
+      "output_peak": 0.4454949200153351,
+      "rms_attenuation_db": 1.0862251971222712
+    },
+    "vi_017_pageturn_events_snr05": {
+      "enhancement_seconds": 0.07776590899999292,
+      "resample_seconds": 0.01650704600001518,
+      "output_peak": 0.4509180784225464,
+      "rms_attenuation_db": 0.5320229293897017
+    },
+    "vi_017_pageturn_events_snr10": {
+      "enhancement_seconds": 0.07615130200002795,
+      "resample_seconds": 0.017037548000018887,
+      "output_peak": 0.44764259457588196,
+      "rms_attenuation_db": 0.35439278396848173
+    },
+    "vi_017_phone_events_snr00": {
+      "enhancement_seconds": 0.0801444139999603,
+      "resample_seconds": 0.016913719999990917,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 1.2461300986702961
+    },
+    "vi_017_phone_events_snr05": {
+      "enhancement_seconds": 0.0761488649999933,
+      "resample_seconds": 0.01685152800001788,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.6016279736510364
+    },
+    "vi_017_phone_events_snr10": {
+      "enhancement_seconds": 0.08087412300000096,
+      "resample_seconds": 0.015253505000032419,
+      "output_peak": 0.45126014947891235,
+      "rms_attenuation_db": 0.3688455853649631
+    },
+    "vi_018_clean": {
+      "enhancement_seconds": 0.0769736670000043,
+      "resample_seconds": 0.014599874999987605,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 4.894784200264225
+    },
+    "vi_018_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.07434321599998839,
+      "resample_seconds": 0.01569916200003263,
+      "output_peak": 0.24199391901493073,
+      "rms_attenuation_db": 5.623626394600896
+    },
+    "vi_018_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.07383000999999467,
+      "resample_seconds": 0.014821281000024555,
+      "output_peak": 0.33960458636283875,
+      "rms_attenuation_db": 4.12762732516536
+    },
+    "vi_018_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.07132252700000663,
+      "resample_seconds": 0.014617213999997603,
+      "output_peak": 0.3374355733394623,
+      "rms_attenuation_db": 4.496040299299249
+    },
+    "vi_018_keyboard_events_snr00": {
+      "enhancement_seconds": 0.07221689400000741,
+      "resample_seconds": 0.014401882000015576,
+      "output_peak": 0.20563888549804688,
+      "rms_attenuation_db": 5.2938072899015145
+    },
+    "vi_018_keyboard_events_snr05": {
+      "enhancement_seconds": 0.07088513100001137,
+      "resample_seconds": 0.014347505999978694,
+      "output_peak": 0.293277770280838,
+      "rms_attenuation_db": 5.1337184774961955
+    },
+    "vi_018_keyboard_events_snr10": {
+      "enhancement_seconds": 0.0710339089999934,
+      "resample_seconds": 0.01421600200001194,
+      "output_peak": 0.2951878309249878,
+      "rms_attenuation_db": 5.028830249751533
+    },
+    "vi_018_knock_events_snr00": {
+      "enhancement_seconds": 0.07156179100002191,
+      "resample_seconds": 0.015756803999977365,
+      "output_peak": 0.31911590695381165,
+      "rms_attenuation_db": 5.919299601631211
+    },
+    "vi_018_knock_events_snr05": {
+      "enhancement_seconds": 0.07272745699998495,
+      "resample_seconds": 0.0157349170000316,
+      "output_peak": 0.32479381561279297,
+      "rms_attenuation_db": 5.305227442012031
+    },
+    "vi_018_knock_events_snr10": {
+      "enhancement_seconds": 0.07911579200003871,
+      "resample_seconds": 0.01725265599998238,
+      "output_peak": 0.32775652408599854,
+      "rms_attenuation_db": 5.057535444159286
+    },
+    "vi_018_doorslam_events_snr00": {
+      "enhancement_seconds": 0.07615245200003073,
+      "resample_seconds": 0.016854545000001053,
+      "output_peak": 0.32633960247039795,
+      "rms_attenuation_db": 5.523840463540214
+    },
+    "vi_018_doorslam_events_snr05": {
+      "enhancement_seconds": 0.07471068099999911,
+      "resample_seconds": 0.015820120999990195,
+      "output_peak": 0.3279082775115967,
+      "rms_attenuation_db": 5.293099633990424
+    },
+    "vi_018_doorslam_events_snr10": {
+      "enhancement_seconds": 0.0730361810000204,
+      "resample_seconds": 0.016541434000032496,
+      "output_peak": 0.3302006423473358,
+      "rms_attenuation_db": 5.122824893665875
+    },
+    "vi_018_keys_events_snr00": {
+      "enhancement_seconds": 0.0744300680000265,
+      "resample_seconds": 0.015570607999961794,
+      "output_peak": 0.31123343110084534,
+      "rms_attenuation_db": 4.672740174824172
+    },
+    "vi_018_keys_events_snr05": {
+      "enhancement_seconds": 0.0723646089999761,
+      "resample_seconds": 0.015942219999999452,
+      "output_peak": 0.31156179308891296,
+      "rms_attenuation_db": 4.370410480082954
+    },
+    "vi_018_keys_events_snr10": {
+      "enhancement_seconds": 0.0734980299999961,
+      "resample_seconds": 0.016956412000013188,
+      "output_peak": 0.3211340308189392,
+      "rms_attenuation_db": 4.257459044063538
+    },
+    "vi_018_pageturn_events_snr00": {
+      "enhancement_seconds": 0.07233479000001353,
+      "resample_seconds": 0.016478865999999925,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 5.24238704930039
+    },
+    "vi_018_pageturn_events_snr05": {
+      "enhancement_seconds": 0.07331914799999595,
+      "resample_seconds": 0.01538445099998853,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 5.324736809638503
+    },
+    "vi_018_pageturn_events_snr10": {
+      "enhancement_seconds": 0.07369000800002823,
+      "resample_seconds": 0.014391519000014341,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 5.313737943011715
+    },
+    "vi_018_phone_events_snr00": {
+      "enhancement_seconds": 0.07521666100001312,
+      "resample_seconds": 0.01675875600000154,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 6.023511819748139
+    },
+    "vi_018_phone_events_snr05": {
+      "enhancement_seconds": 0.07277328100002478,
+      "resample_seconds": 0.015108574999999291,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 5.466239302920463
+    },
+    "vi_018_phone_events_snr10": {
+      "enhancement_seconds": 0.07294968600001539,
+      "resample_seconds": 0.015125936000004003,
+      "output_peak": 0.33241069316864014,
+      "rms_attenuation_db": 5.1433004584578494
+    },
+    "vi_019_clean": {
+      "enhancement_seconds": 0.10490571299999374,
+      "resample_seconds": 0.019586006999986694,
+      "output_peak": 0.34786707162857056,
+      "rms_attenuation_db": 0.6773992785908257
+    },
+    "vi_019_keyboard_continuous_snr00": {
+      "enhancement_seconds": 0.09685962399998971,
+      "resample_seconds": 0.019706110000015542,
+      "output_peak": 0.13177694380283356,
+      "rms_attenuation_db": 3.6683222731465124
+    },
+    "vi_019_keyboard_continuous_snr05": {
+      "enhancement_seconds": 0.09700306100000944,
+      "resample_seconds": 0.021129427999994732,
+      "output_peak": 0.2168155163526535,
+      "rms_attenuation_db": 2.117300918503005
+    },
+    "vi_019_keyboard_continuous_snr10": {
+      "enhancement_seconds": 0.09741022199995086,
+      "resample_seconds": 0.019118992000016988,
+      "output_peak": 0.27352362871170044,
+      "rms_attenuation_db": 3.5451484267730926
+    },
+    "vi_019_keyboard_events_snr00": {
+      "enhancement_seconds": 0.09808682800002089,
+      "resample_seconds": 0.019937182000035136,
+      "output_peak": 0.34893327951431274,
+      "rms_attenuation_db": 1.7955124919352081
+    },
+    "vi_019_keyboard_events_snr05": {
+      "enhancement_seconds": 0.0977369690000387,
+      "resample_seconds": 0.02010971800001471,
+      "output_peak": 0.34523850679397583,
+      "rms_attenuation_db": 1.219522909738808
+    },
+    "vi_019_keyboard_events_snr10": {
+      "enhancement_seconds": 0.09764775900003997,
+      "resample_seconds": 0.019115261999957056,
+      "output_peak": 0.3439175486564636,
+      "rms_attenuation_db": 1.0948878484614504
+    },
+    "vi_019_knock_events_snr00": {
+      "enhancement_seconds": 0.0984086619999971,
+      "resample_seconds": 0.020139223999990463,
+      "output_peak": 0.3318406343460083,
+      "rms_attenuation_db": 1.5480808117127132
+    },
+    "vi_019_knock_events_snr05": {
+      "enhancement_seconds": 0.09699030300004097,
+      "resample_seconds": 0.019413215999975364,
+      "output_peak": 0.3412131369113922,
+      "rms_attenuation_db": 1.1227824565898745
+    },
+    "vi_019_knock_events_snr10": {
+      "enhancement_seconds": 0.09580806299999267,
+      "resample_seconds": 0.01888164299998607,
+      "output_peak": 0.34622621536254883,
+      "rms_attenuation_db": 0.8944008201212956
+    },
+    "vi_019_doorslam_events_snr00": {
+      "enhancement_seconds": 0.10091061499997522,
+      "resample_seconds": 0.025684400999978152,
+      "output_peak": 0.32552048563957214,
+      "rms_attenuation_db": 1.680429206241362
+    },
+    "vi_019_doorslam_events_snr05": {
+      "enhancement_seconds": 0.09772434800004248,
+      "resample_seconds": 0.01924752399997942,
+      "output_peak": 0.33481061458587646,
+      "rms_attenuation_db": 1.1858613248800445
+    },
+    "vi_019_doorslam_events_snr10": {
+      "enhancement_seconds": 0.0971705590000056,
+      "resample_seconds": 0.019592344000045614,
+      "output_peak": 0.34174302220344543,
+      "rms_attenuation_db": 0.9614845617897861
+    },
+    "vi_019_keys_events_snr00": {
+      "enhancement_seconds": 0.0984588719999806,
+      "resample_seconds": 0.0204912539999782,
+      "output_peak": 0.32259419560432434,
+      "rms_attenuation_db": 2.3475281885067254
+    },
+    "vi_019_keys_events_snr05": {
+      "enhancement_seconds": 0.09840227600000162,
+      "resample_seconds": 0.019368428999996468,
+      "output_peak": 0.3289852738380432,
+      "rms_attenuation_db": 1.9743093562066578
+    },
+    "vi_019_keys_events_snr10": {
+      "enhancement_seconds": 0.09846701099996835,
+      "resample_seconds": 0.019301874000007047,
+      "output_peak": 0.33601266145706177,
+      "rms_attenuation_db": 1.6132755791019247
+    },
+    "vi_019_pageturn_events_snr00": {
+      "enhancement_seconds": 0.09671216800001048,
+      "resample_seconds": 0.019512586000018928,
+      "output_peak": 0.16475163400173187,
+      "rms_attenuation_db": 1.2298386314644656
+    },
+    "vi_019_pageturn_events_snr05": {
+      "enhancement_seconds": 0.09644374999999172,
+      "resample_seconds": 0.019281794999983504,
+      "output_peak": 0.2840862274169922,
+      "rms_attenuation_db": 2.0370795015378897
+    },
+    "vi_019_pageturn_events_snr10": {
+      "enhancement_seconds": 0.09565283099999533,
+      "resample_seconds": 0.019173878000003697,
+      "output_peak": 0.31385836005210876,
+      "rms_attenuation_db": 3.0244659372958256
+    },
+    "vi_019_phone_events_snr00": {
+      "enhancement_seconds": 0.09665057999995952,
+      "resample_seconds": 0.018762968000032743,
+      "output_peak": 0.3492574989795685,
+      "rms_attenuation_db": 1.9180537206976347
+    },
+    "vi_019_phone_events_snr05": {
+      "enhancement_seconds": 0.09784517500003176,
+      "resample_seconds": 0.019934236999972654,
+      "output_peak": 0.3439024090766907,
+      "rms_attenuation_db": 1.1239054468035825
+    },
+    "vi_019_phone_events_snr10": {
+      "enhancement_seconds": 0.09852236699998684,
+      "resample_seconds": 0.020143911000047865,
+      "output_peak": 0.338981032371521,
+      "rms_attenuation_db": 0.8290223653315303
+    },
+    "keyboard_continuous_only_00": {
+      "enhancement_seconds": 0.07150719899999558,
+      "resample_seconds": 0.013783833999980288,
+      "output_peak": 0.02800649031996727,
+      "rms_attenuation_db": 15.511724877628792
+    },
+    "keyboard_continuous_only_01": {
+      "enhancement_seconds": 0.0690167390000056,
+      "resample_seconds": 0.017135058999997455,
+      "output_peak": 0.0029922393150627613,
+      "rms_attenuation_db": 33.139961569485834
+    },
+    "keyboard_continuous_only_02": {
+      "enhancement_seconds": 0.06964817499999754,
+      "resample_seconds": 0.013219141999968542,
+      "output_peak": 0.015796883031725883,
+      "rms_attenuation_db": 19.184535490264793
+    },
+    "keyboard_events_only_00": {
+      "enhancement_seconds": 0.06705675700004576,
+      "resample_seconds": 0.013315836000003856,
+      "output_peak": 0.027112426236271858,
+      "rms_attenuation_db": 16.80096125085885
+    },
+    "keyboard_events_only_01": {
+      "enhancement_seconds": 0.06382295200000954,
+      "resample_seconds": 0.01323902699999735,
+      "output_peak": 0.022303149104118347,
+      "rms_attenuation_db": 19.774975418743818
+    },
+    "keyboard_events_only_02": {
+      "enhancement_seconds": 0.06611578000001828,
+      "resample_seconds": 0.01425051300003588,
+      "output_peak": 0.05829762667417526,
+      "rms_attenuation_db": 17.726202993794097
+    },
+    "knock_events_only_00": {
+      "enhancement_seconds": 0.0680658580000113,
+      "resample_seconds": 0.013175773999989815,
+      "output_peak": 0.0475311204791069,
+      "rms_attenuation_db": 17.73512092045539
+    },
+    "knock_events_only_01": {
+      "enhancement_seconds": 0.06589144499997701,
+      "resample_seconds": 0.01490109299999176,
+      "output_peak": 0.00836506299674511,
+      "rms_attenuation_db": 28.012082402192505
+    },
+    "knock_events_only_02": {
+      "enhancement_seconds": 0.06494197000000668,
+      "resample_seconds": 0.014549426000030508,
+      "output_peak": 0.30784231424331665,
+      "rms_attenuation_db": 10.44583553711064
+    },
+    "doorslam_events_only_00": {
+      "enhancement_seconds": 0.06712786299999607,
+      "resample_seconds": 0.014268587999993088,
+      "output_peak": 0.002499369904398918,
+      "rms_attenuation_db": 43.99803062877305
+    },
+    "doorslam_events_only_01": {
+      "enhancement_seconds": 0.07054376999997203,
+      "resample_seconds": 0.01508887400001413,
+      "output_peak": 0.014153264462947845,
+      "rms_attenuation_db": 27.45499446598753
+    },
+    "doorslam_events_only_02": {
+      "enhancement_seconds": 0.06910170700001572,
+      "resample_seconds": 0.01550173900000118,
+      "output_peak": 0.008591750636696815,
+      "rms_attenuation_db": 41.37868171085686
+    },
+    "keys_events_only_00": {
+      "enhancement_seconds": 0.06935358800001268,
+      "resample_seconds": 0.015299133999974401,
+      "output_peak": 0.016177624464035034,
+      "rms_attenuation_db": 23.1306633344977
+    },
+    "keys_events_only_01": {
+      "enhancement_seconds": 0.06808933799999295,
+      "resample_seconds": 0.01553455200001963,
+      "output_peak": 0.0060430108569562435,
+      "rms_attenuation_db": 35.01791209092416
+    },
+    "keys_events_only_02": {
+      "enhancement_seconds": 0.0673552399999835,
+      "resample_seconds": 0.013856932000010147,
+      "output_peak": 0.00036481194547377527,
+      "rms_attenuation_db": 55.01315587615868
+    },
+    "pageturn_events_only_00": {
+      "enhancement_seconds": 0.06696774599998889,
+      "resample_seconds": 0.014699961999951938,
+      "output_peak": 0.13072973489761353,
+      "rms_attenuation_db": 12.116209318540559
+    },
+    "pageturn_events_only_01": {
+      "enhancement_seconds": 0.0648444689999792,
+      "resample_seconds": 0.01334573700000874,
+      "output_peak": 0.01754169538617134,
+      "rms_attenuation_db": 26.897300271784363
+    },
+    "pageturn_events_only_02": {
+      "enhancement_seconds": 0.06632951299997103,
+      "resample_seconds": 0.014639925000039966,
+      "output_peak": 0.1006513386964798,
+      "rms_attenuation_db": 11.380243083376111
+    },
+    "phone_events_only_00": {
+      "enhancement_seconds": 0.06649409699997477,
+      "resample_seconds": 0.014736162000019704,
+      "output_peak": 0.006524613592773676,
+      "rms_attenuation_db": 36.27214552363158
+    },
+    "phone_events_only_01": {
+      "enhancement_seconds": 0.06706488100002161,
+      "resample_seconds": 0.014912854000044717,
+      "output_peak": 0.0025447134394198656,
+      "rms_attenuation_db": 48.55920998165895
+    },
+    "phone_events_only_02": {
+      "enhancement_seconds": 0.06745114500000682,
+      "resample_seconds": 0.01469651600001498,
+      "output_peak": 0.0008931313059292734,
+      "rms_attenuation_db": 59.21780787033498
+    }
+  },
+  "notes": "Two warmups; one timed enhancement/clip, CPU frontend/synthesis included; resampling separate."
+}
