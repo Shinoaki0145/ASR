@@ -1,0 +1,7 @@
+.venv/
+.env
+vendor/
+models/
+__pycache__/
+*.pyc
+.sub_asr_source/

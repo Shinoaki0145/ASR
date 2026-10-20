@@ -1,0 +1,24 @@
+[asr]
+repo = "vendor/gipformer"
+icefall = "vendor/icefall"
+model_dir = "models/gipformer1.5-68M-rnnt"
+
+[turn]
+threshold = 0.5
+negative_threshold = 0.35
+start_speech = 0.16
+pre_roll = 0.32
+min_silence = 0.8
+incomplete_silence = 2.5
+max_wait = 4.0
+max_turn = 30.0
+partial_interval = 1.0
+
+[assistant]
+system_prompt = "Bạn là trợ lý hội thoại tiếng Việt. Trả lời ngắn gọn, tự nhiên, chính xác. Khi thiếu thông tin, hỏi lại người dùng."
+semantic_timeout = 1.5
+response_timeout = 45.0
+max_history_messages = 20
+tts_command = "espeak-ng"
+tts_voice = "vi"
+tts_speed = 165
