@@ -1,0 +1,6 @@
+# Cấu hình cá nhân và bí mật; chỉ commit bản mẫu.
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
