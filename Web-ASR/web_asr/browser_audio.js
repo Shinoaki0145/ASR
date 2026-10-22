@@ -41,10 +41,16 @@
     chunks=[];samples=0;const err=micError;micError=null;
     return JSON.stringify({sequence:++sequence,recording_id:recordingId,rate,audio:btoa(data),mic,error:err,acks:acks.splice(0)});
   }
-  function ack(c, status) { acks.push({...c, audio_url: undefined, status}); }
+  function ack(c, status, extra={}) { acks.push({...c, audio_url: undefined, status, ...extra}); }
+  function mediaMeta() {
+    const dur = Number.isFinite(player.duration) ? Math.round(player.duration * 1000) / 1000 : null;
+    const pos = Number.isFinite(player.currentTime) ? Math.round(player.currentTime * 1000) / 1000 : null;
+    return {audio_duration_s: dur, played_s: pos};
+  }
   function stop(status='stopped') {
+    const meta = mediaMeta();
     player.pause(); player.removeAttribute('src'); player.load();
-    if (active) ack(active, status);
+    if (active) ack(active, status, meta);
     active = null;
     if(retryButton())retryButton().style.display='none';
   }
@@ -68,10 +74,10 @@
         if (c.kind === 'stop') {stop();ack(c,'stopped');}
         else if (c.generation === generation && c.audio_epoch === epoch && !muted) {
           stop(); active = c; player.src = c.audio_url;
-          player.onplay = () => {if(active===c){ack(c,'started');if(retryButton())retryButton().style.display='none';}};
-          player.onended = () => { if (active === c) {ack(c, 'ended'); active=null;} };
-          player.onerror = () => { if (active === c) {ack(c, 'error');active=null;} };
-          player.play().catch(() => {if(active===c){ack(c,'blocked');if(retryButton())retryButton().style.display='inline-block';}});
+          player.onplay = () => {if(active===c){ack(c,'started',mediaMeta());if(retryButton())retryButton().style.display='none';}};
+          player.onended = () => { if (active === c) {ack(c, 'ended', mediaMeta()); active=null;} };
+          player.onerror = () => { if (active === c) {ack(c, 'error', mediaMeta());active=null;} };
+          player.play().catch(() => {if(active===c){ack(c,'blocked',mediaMeta());if(retryButton())retryButton().style.display='inline-block';}});
         }
       }
       return null;

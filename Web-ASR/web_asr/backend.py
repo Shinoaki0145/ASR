@@ -184,7 +184,12 @@ class Client:
         )
         self.worker = asyncio.create_task(self.consume())
 
+    def now(self):
+        return round(time.perf_counter() - self.session.origin, 3)
+
     def event(self, event):
+        if "t" not in event:
+            event = {"event": event["event"], "t": self.now(), **{k: v for k, v in event.items() if k != "event"}}
         self.events.append(event)
         if event["event"] == "speech_started":
             self.output = ""
@@ -202,14 +207,17 @@ class Client:
             audio_epoch=self.epoch,
             playback_id=uuid.uuid4().hex,
             kind=kind,
+            sent_at=self.now(),
             **extra,
         )
+        log_extra = {k: v for k, v in extra.items() if k != "audio_url"}
         self.event(
             dict(
                 event="audio_command",
                 generation=self.session.generation,
                 kind=kind,
                 command_id=self.command_id,
+                **log_extra,
             )
         )
         return self.command
@@ -284,38 +292,75 @@ class Client:
                 w.setsampwidth(2)
                 w.setframerate(16000)
                 w.writeframes(x.tobytes())
-            return b.getvalue(), "audio/wav"
+            return b.getvalue(), "audio/wav", "fake"
         if self.controller.settings.tts_voice.lower() != "espeak":
             try:
-                return await self.synthesize_edge(text)
+                data, mime = await self.synthesize_edge(text)
+                return data, mime, f"edge-tts ({self.controller.settings.tts_voice})"
             except asyncio.CancelledError:
                 raise
-            except Exception:
-                pass
-        return await self.synthesize_espeak(self.clean_tts_text(text))
+            except Exception as e:
+                self.event(
+                    dict(
+                        event="tts_fallback",
+                        generation=self.session.generation,
+                        reason=f"{type(e).__name__}: {e}",
+                        fallback="espeak-ng",
+                    )
+                )
+        data, mime = await self.synthesize_espeak(self.clean_tts_text(text))
+        return data, mime, "espeak-ng"
 
     async def speak(self, text):
         if not self.speaker:
             return "muted"
         epoch = self.epoch
         generation = self.session.generation
+        tts_start = self.now()
+        self.event(
+            dict(
+                event="tts_started",
+                generation=generation,
+                engine=self.controller.settings.tts_voice if not self.controller.settings.fake else "fake",
+                text=text,
+            )
+        )
         self.tts = asyncio.create_task(self.synthesize(text))
         try:
             result = await self.tts
-            data, mime = (
-                result if isinstance(result, tuple) else (result, "audio/wav")
-            )
+            if isinstance(result, tuple) and len(result) == 3:
+                data, mime, engine = result
+            elif isinstance(result, tuple):
+                data, mime, engine = result[0], result[1], "custom"
+            else:
+                data, mime, engine = result, "audio/wav", "espeak-ng"
         except asyncio.CancelledError:
             if epoch != self.epoch:
                 return "muted"
             raise
         finally:
             self.tts = None
+        tts_done = self.now()
+        est_duration = round(len(data) / (6000 if mime == "audio/mpeg" else 32000), 2)
+        self.event(
+            dict(
+                event="tts_ready",
+                generation=generation,
+                engine=engine,
+                mime=mime,
+                tts_synth_ms=round((tts_done - tts_start) * 1000, 1),
+                audio_bytes=len(data),
+                est_duration_s=est_duration,
+            )
+        )
         if not self.speaker or epoch != self.epoch:
             return "muted"
         self.waiter = asyncio.get_running_loop().create_future()
         self.command_for(
             "play",
+            engine=engine,
+            text=text,
+            est_duration_s=est_duration,
             audio_url=f"data:{mime};base64," + base64.b64encode(data).decode(),
         )
         try:
@@ -338,13 +383,33 @@ class Client:
             for k in ("command_id", "generation", "audio_epoch", "playback_id")
         ):
             return
-        self.event(
-            dict(
-                event="browser_ack",
-                generation=self.session.generation,
-                status=ack.get("status"),
-            )
+        now = self.now()
+        status = ack.get("status")
+        details = dict(
+            event="browser_ack",
+            t=now,
+            generation=self.session.generation,
+            command_id=self.command.get("command_id"),
+            status=status,
         )
+        if self.command.get("engine"):
+            details["engine"] = self.command["engine"]
+        if self.command.get("text"):
+            details["text"] = self.command["text"]
+        if ack.get("audio_duration_s") is not None:
+            details["audio_duration_s"] = ack["audio_duration_s"]
+        elif self.command.get("est_duration_s") is not None:
+            details["est_duration_s"] = self.command["est_duration_s"]
+        if status == "started":
+            self.command["started_at"] = now
+            if self.command.get("sent_at") is not None:
+                details["transfer_delay_ms"] = round((now - self.command["sent_at"]) * 1000, 1)
+        elif status in {"ended", "stopped", "muted", "error"}:
+            if ack.get("played_s") is not None:
+                details["played_s"] = ack["played_s"]
+            if self.command.get("started_at") is not None:
+                details["elapsed_since_start_s"] = round(now - self.command["started_at"], 3)
+        self.event(details)
         status = ack.get("status")
         if status in {"started", "blocked", "ended", "error"}:
             self.command.pop("audio_url", None)

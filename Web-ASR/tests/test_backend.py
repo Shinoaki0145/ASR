@@ -222,11 +222,12 @@ class BackendTests(unittest.TestCase):
             self.c.settings.fake = False
             self.c.settings.tts_voice = "vi-VN-HoaiMyNeural"
             with patch("edge_tts.Communicate", FakeComm):
-                data, mime = await self.c.clients[self.sid].synthesize(
+                data, mime, engine = await self.c.clients[self.sid].synthesize(
                     "Chào **bạn**, đặt [vé](https://x) #1"
                 )
             self.assertEqual(mime, "audio/mpeg")
             self.assertEqual(data, b"ID3-mp3-bytes")
+            self.assertIn("edge-tts", engine)
             self.assertEqual(captured["text"], "Chào bạn, đặt vé 1")
             self.assertEqual(captured["voice"], "vi-VN-HoaiMyNeural")
 
