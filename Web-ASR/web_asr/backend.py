@@ -4,6 +4,7 @@ import asyncio
 from contextlib import suppress
 import copy
 from collections import deque
+import re
 import sys
 import threading
 import time
@@ -220,18 +221,13 @@ class Client:
         if self.tts and not self.tts.done():
             self.tts.cancel()
 
-    async def synthesize(self, text):
-        if self.controller.settings.fake:
-            x = (np.sin(np.arange(48000) * 2 * np.pi * 440 / 16000) * 3000).astype(
-                "<i2"
-            )
-            b = io.BytesIO()
-            with wave.open(b, "wb") as w:
-                w.setnchannels(1)
-                w.setsampwidth(2)
-                w.setframerate(16000)
-                w.writeframes(x.tobytes())
-            return b.getvalue()
+    @staticmethod
+    def clean_tts_text(text):
+        cleaned = re.sub(r"[*_`#~>]+", "", text)
+        cleaned = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", cleaned)
+        return cleaned.strip() or text
+
+    async def synthesize_espeak(self, text):
         p = await asyncio.create_subprocess_exec(
             "espeak-ng",
             "-v",
@@ -248,7 +244,7 @@ class Client:
             data, _ = await asyncio.wait_for(p.communicate(text.encode()), 20)
             if p.returncode:
                 raise RuntimeError("TTS failed")
-            return data
+            return data, "audio/wav"
         finally:
             if p.returncode is None:
                 with suppress(ProcessLookupError):
@@ -260,6 +256,44 @@ class Client:
                         p.kill()
                     await p.wait()
 
+    async def synthesize_edge(self, text):
+        import edge_tts
+
+        comm = edge_tts.Communicate(
+            self.clean_tts_text(text),
+            voice=self.controller.settings.tts_voice,
+            rate=self.controller.settings.tts_rate,
+        )
+        chunks = bytearray()
+        async with asyncio.timeout(20):
+            async for chunk in comm.stream():
+                if chunk.get("type") == "audio" and chunk.get("data"):
+                    chunks.extend(chunk["data"])
+        if not chunks:
+            raise RuntimeError("Edge TTS returned empty audio")
+        return bytes(chunks), "audio/mpeg"
+
+    async def synthesize(self, text):
+        if self.controller.settings.fake:
+            x = (np.sin(np.arange(48000) * 2 * np.pi * 440 / 16000) * 3000).astype(
+                "<i2"
+            )
+            b = io.BytesIO()
+            with wave.open(b, "wb") as w:
+                w.setnchannels(1)
+                w.setsampwidth(2)
+                w.setframerate(16000)
+                w.writeframes(x.tobytes())
+            return b.getvalue(), "audio/wav"
+        if self.controller.settings.tts_voice.lower() != "espeak":
+            try:
+                return await self.synthesize_edge(text)
+            except asyncio.CancelledError:
+                raise
+            except Exception:
+                pass
+        return await self.synthesize_espeak(self.clean_tts_text(text))
+
     async def speak(self, text):
         if not self.speaker:
             return "muted"
@@ -267,7 +301,10 @@ class Client:
         generation = self.session.generation
         self.tts = asyncio.create_task(self.synthesize(text))
         try:
-            data = await self.tts
+            result = await self.tts
+            data, mime = (
+                result if isinstance(result, tuple) else (result, "audio/wav")
+            )
         except asyncio.CancelledError:
             if epoch != self.epoch:
                 return "muted"
@@ -278,11 +315,12 @@ class Client:
             return "muted"
         self.waiter = asyncio.get_running_loop().create_future()
         self.command_for(
-            "play", audio_url="data:audio/wav;base64," + base64.b64encode(data).decode()
+            "play",
+            audio_url=f"data:{mime};base64," + base64.b64encode(data).decode(),
         )
         try:
-            # eSpeak stdout can use an unbounded WAV header; derive duration from bytes.
-            return await asyncio.wait_for(self.waiter, len(data) / 32000 + 10)
+            bps = 6000 if mime == "audio/mpeg" else 32000
+            return await asyncio.wait_for(self.waiter, max(len(data) / bps, len(text) / 10) + 15)
         except TimeoutError:
             self.event(dict(event="audio_timeout", generation=generation))
             self.stop_audio("error")

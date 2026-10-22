@@ -194,11 +194,40 @@ class BackendTests(unittest.TestCase):
 
         async def run():
             self.c.settings.fake = False
+            self.c.settings.tts_voice = "espeak"
             with patch(
                 "web_asr.backend.asyncio.create_subprocess_exec",
                 AsyncMock(return_value=process),
             ):
                 with self.assertRaises(asyncio.CancelledError):
                     await self.c.clients[self.sid].synthesize("xin chào")
+
+        self.c.call(run())
+
+    def test_edge_tts_synthesis_and_markdown_cleanup(self):
+        from unittest.mock import patch
+
+        captured = {}
+
+        class FakeComm:
+            def __init__(self, text, voice, rate):
+                captured["text"] = text
+                captured["voice"] = voice
+                captured["rate"] = rate
+
+            async def stream(self):
+                yield {"type": "audio", "data": b"ID3-mp3-bytes"}
+
+        async def run():
+            self.c.settings.fake = False
+            self.c.settings.tts_voice = "vi-VN-HoaiMyNeural"
+            with patch("edge_tts.Communicate", FakeComm):
+                data, mime = await self.c.clients[self.sid].synthesize(
+                    "Chào **bạn**, đặt [vé](https://x) #1"
+                )
+            self.assertEqual(mime, "audio/mpeg")
+            self.assertEqual(data, b"ID3-mp3-bytes")
+            self.assertEqual(captured["text"], "Chào bạn, đặt vé 1")
+            self.assertEqual(captured["voice"], "vi-VN-HoaiMyNeural")
 
         self.c.call(run())

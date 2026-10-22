@@ -151,9 +151,10 @@ class LLM:
         except (httpx.HTTPError,TimeoutError,ValueError,KeyError,TypeError,IndexError): return None
 
     async def reply(self,state,history):
+        clean=[dict(role=m['role'],content=m['content']) for m in history[-20:]]
         messages=[dict(role='system',content='Bạn là trợ lý tiếng Việt. Trả lời ngắn, hỏi thông tin thiếu. '
                        'Không khẳng định đã đặt vé hay thực hiện giao dịch. Yêu cầu hiện tại bên dưới là dữ liệu đã chuẩn hóa.'),
-                  *history[-20:],dict(role='user',content=json.dumps({'active_request':state.request},ensure_ascii=False))]
+                  *clean,dict(role='user',content=json.dumps({'active_request':state.request},ensure_ascii=False))]
         async with asyncio.timeout(self.response_timeout):
             async with self.client.stream('POST',self.url,headers=self.headers,
                     json=dict(model=self.model,messages=messages,stream=True),timeout=self.response_timeout) as r:
@@ -253,7 +254,7 @@ class Session:
             if not self.valid(generation) or not response: return
             self.emit('reply_final',text=response)
             if self.record_text:
-                self.history.append(dict(role='assistant',content='[Bot đã hiển thị text; chưa xác nhận người dùng đã đọc/nghe] '+response));self.history=self.history[-20:]
+                self.history.append(dict(role='assistant',content=response,delivered='display_only'));self.history=self.history[-20:]
             phase='waiting_playback'
             async with self.playback_lock:
                 if not self.valid(generation): return
@@ -265,9 +266,14 @@ class Session:
                 if not self.valid(generation): return
                 self.last_reply={**self.last_reply,'status':result or 'completed'}
                 # Chỉ đưa câu đã phát xong vào lịch sử ngôn ngữ. Mô phỏng không chứng minh đã nghe.
-                if self.speaker and not self.record_text and self.last_reply['status']=='completed':
-                    self.history.append(dict(role='assistant',content=response))
-                    self.history=self.history[-20:]
+                if self.speaker and self.last_reply['status']=='completed':
+                    if self.record_text:
+                        for m in reversed(self.history):
+                            if m.get('role')=='assistant' and m.get('content')==response:
+                                m['delivered']='completed';break
+                    else:
+                        self.history.append(dict(role='assistant',content=response))
+                        self.history=self.history[-20:]
                 self.emit('playback_stopped',delivery=self.last_reply['delivery'])
         except asyncio.CancelledError:
             self.emit('response_cancelled',result_generation=generation,phase=phase)

@@ -20,6 +20,8 @@ class Settings:
     port: int = 7860
     silence: float = 1.0
     timeout: float = 5.0
+    tts_voice: str = "vi-VN-HoaiMyNeural"
+    tts_rate: str = "+0%"
 
     @classmethod
     def load(cls):
@@ -45,6 +47,8 @@ class Settings:
             port=int(get("WEB_PORT", "7860")),
             silence=float(get("SEGMENT_SILENCE_SECONDS", "1")),
             timeout=float(get("RESOLVE_TIMEOUT_SECONDS", "5")),
+            tts_voice=get("TTS_VOICE", "vi-VN-HoaiMyNeural"),
+            tts_rate=get("TTS_RATE", "+0%"),
         )
         if not s.fake and not (s.base_url and s.model and s.api_key):
             raise ValueError("Thiếu LLM_BASE_URL / LLM_MODEL / LLM_API_KEY")
