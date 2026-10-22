@@ -119,7 +119,7 @@ class LLM:
         visible=None
         if last_reply:
             visible=dict(last_reply)
-            if visible.get('status')!='completed' or visible.get('delivery')!='speaker':
+            if visible.get('status')!='completed' or visible.get('delivery') not in {'speaker','browser'}:
                 visible['text']=None
         data=dict(transcript=text,state=asdict(state),history=history[-6:],last_reply=visible)
         try:
@@ -173,9 +173,10 @@ class LLM:
 
 
 class Session:
-    def __init__(self,llm,emit=print,speaker=None,simulated_seconds=4.):
+    def __init__(self,llm,emit=print,speaker=None,simulated_seconds=4.,speaker_delivery='speaker',record_text=False):
         self.llm=llm;self.emit_callback=emit;self.speaker=speaker
         self.simulated_seconds=simulated_seconds
+        self.speaker_delivery=speaker_delivery;self.record_text=record_text
         self.state=RequestState();self.history=[];self.last_reply=None
         self.generation=0;self.response_task=None;self.jobs=set();self.origin=perf_counter()
         self.playback_lock=asyncio.Lock()
@@ -239,7 +240,7 @@ class Session:
                 d=Decision('clarify',None,FALLBACK);updated=apply_decision(state,text,d)
             self.state=updated
             self.emit('request_updated',action=d.action,request=updated.request,question=d.question)
-            self.last_reply=dict(text='',status='generating',delivery='speaker' if self.speaker else 'simulated')
+            self.last_reply=dict(text='',status='generating',delivery=self.speaker_delivery if self.speaker else 'simulated')
             phase='generate'
             if d.action=='cancel': response='Đã hủy yêu cầu.'
             elif d.action=='clarify': response=d.question
@@ -250,18 +251,21 @@ class Session:
                     response+=chunk
                     self.emit('reply_chunk',text=chunk)
             if not self.valid(generation) or not response: return
+            self.emit('reply_final',text=response)
+            if self.record_text:
+                self.history.append(dict(role='assistant',content='[Bot đã hiển thị text; chưa xác nhận người dùng đã đọc/nghe] '+response));self.history=self.history[-20:]
             phase='waiting_playback'
             async with self.playback_lock:
                 if not self.valid(generation): return
                 self.last_reply={**self.last_reply,'text':response,'status':'speaking'}
                 phase='playback'
-                self.emit('playback_started',text=response,delivery=self.last_reply['delivery'])
-                if self.speaker: await self.speaker(response)
-                else: await asyncio.sleep(self.simulated_seconds)
+                self.emit('playback_requested' if self.speaker_delivery=='browser' else 'playback_started',text=response,delivery=self.last_reply['delivery'])
+                result=await self.speaker(response) if self.speaker else None
+                if not self.speaker: await asyncio.sleep(self.simulated_seconds)
                 if not self.valid(generation): return
-                self.last_reply={**self.last_reply,'status':'completed'}
+                self.last_reply={**self.last_reply,'status':result or 'completed'}
                 # Chỉ đưa câu đã phát xong vào lịch sử ngôn ngữ. Mô phỏng không chứng minh đã nghe.
-                if self.speaker:
+                if self.speaker and not self.record_text and self.last_reply['status']=='completed':
                     self.history.append(dict(role='assistant',content=response))
                     self.history=self.history[-20:]
                 self.emit('playback_stopped',delivery=self.last_reply['delivery'])
@@ -327,12 +331,17 @@ class AudioRunner:
 
     async def consume(self,frame):
         turn=self.turn;s=self.session
-        if turn.feed(frame,self.vad(frame)):
+        if frame is not None and turn.feed(frame,self.vad(frame)):
             s.speech_started();self.turn_generation=s.generation
         key=(turn.turn_id,turn.revision)
         if self.asr_task and self.asr_task.done():
             task=self.asr_task;self.asr_task=None
-            text,seconds=task.result();snap=self.snapshot
+            snap=self.snapshot
+            try: text,seconds=task.result()
+            except Exception as exc:
+                if not getattr(s,'recover_asr_error',False):raise
+                s.emit('asr_failed',turn_id=snap.turn_id,error_type=type(exc).__name__)
+                text,seconds='',0.
             snap_key=(snap.turn_id,snap.revision)
             if self.pending and snap_key==self.pending[0]['key']:
                 self.pending[0]['text']=text
