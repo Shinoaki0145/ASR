@@ -415,7 +415,7 @@ async def close_resources(session,runner,llm):
 
 async def real_run(args,emit):
     from dotenv import load_dotenv
-    load_dotenv(Path('.env'),override=False)
+    load_dotenv(Path(os.getenv('ASR_ENV_PATH', '.env')),override=False)
     config=tomllib.loads(Path('config.toml').read_text())
     llm=LLM(os.getenv('LLM_BASE_URL',''),os.getenv('LLM_MODEL',''),os.getenv('LLM_API_KEY',''),
             os.getenv('TURN_MODEL',''),resolve_timeout=args.resolve_timeout)

@@ -6,7 +6,7 @@ import threading
 from contextlib import suppress
 import unittest
 
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'Sub-ASR'))
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from voice import Decision, RequestState, parse_decision, apply_decision, Session, LLM, AudioRunner, speak_local, ResolveError
 
 

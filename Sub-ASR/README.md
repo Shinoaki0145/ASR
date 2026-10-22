@@ -1,5 +1,6 @@
 # Sub-ASR — trợ lý hội thoại tiếng Việt
 
+
 Ứng dụng Python chạy ở terminal, **không dùng DF3**:
 
 ```text
@@ -167,3 +168,31 @@ Bản upload trả **text** cho phản hồi trợ lý, chưa phát TTS trong br
 Hỗ trợ WAV/FLAC/OGG/MP3 nếu libsndfile đọc được. M4A/WebM và codec khác dùng FFmpeg nếu có trên máy chủ. Không đổi tên file để giả định dạng; nội dung được giải mã theo codec. Tối đa **25 MB và 60 giây/file**; quá giới hạn sẽ báo lỗi, không cắt ngắn âm thầm. Audio được đổi mono 16 kHz bằng resampling, không peak-normalize. Nếu codec không hỗ trợ, chuyển sang WAV trước.
 
 Tài liệu API: [upload file](https://docs.marimo.io/api/inputs/file/), [GitHub mirror trên Molab](https://docs.marimo.io/guides/molab/#mirror-notebooks-from-github).
+
+## Notebook hội thoại ngắt lời
+
+Mở [Hoi_Thoai_Ngat_Loi_Testing.ipynb](Hoi_Thoai_Ngat_Loi_Testing.ipynb). Notebook chạy trực tiếp `voice.py` và dùng `test_voice.py` để kiểm thử offline; chỉnh sửa cell trực tiếp trong notebook. Không cần script tạo notebook.
+
+Notebook có runtime hội thoại riêng: chốt audio sau 1 giây im lặng mặc định, rồi LLM cập nhật yêu cầu theo action new/append/update/replace/cancel/clarify. CLI/Marimo dùng bộ điều phối trong `sub_asr/app.py`, bao gồm semantic endpoint.
+
+## Chạy notebook
+
+- Local: mở notebook từ repo. Bootstrap tìm gốc repo từ thư mục làm việc của kernel và các thư mục cha.
+- Colab: clone repo đầy đủ rồi `%cd` vào thư mục repo trước khi chạy các cell. Chỉ upload notebook sẽ không đủ source.
+- Nếu kernel chạy ngoài repo, đặt biến môi trường `ASR_PROJECT_ROOT` tới gốc repo trước khi chạy bootstrap.
+- Sao chép `.env.example` thành `.env` tại gốc repo. Notebook luôn đọc file này, dù kernel chạy ở gốc hoặc `Sub-ASR/`. Có thể sửa `ENV_PATH` trong cell cấu hình.
+- Audio mẫu đọc trực tiếp từ `voice/`. Đổi `AUDIO_PATH` nếu dùng file khác.
+
+Worker chạy bằng uv với thư mục làm việc `Sub-ASR/`, dùng lockfile và Python 3.12 của project này. Source worker là `Sub-ASR/voice.py`; notebook truyền file `.env` đã chọn cho worker. Không tạo `.turn_taking_notebook/` hoặc bản sao source.
+
+`demo` kiểm tra orchestration bằng fixture, không gọi model hoặc LLM thật. `real/text` cần API LLM; `real/audio` và `real/microphone` cần NVIDIA GPU cho Gipformer. Silero mặc định CUDA trong notebook. Chế độ phát giả lập không tạo tiếng; microphone và eSpeak chỉ dùng thiết bị trên máy worker, không phải browser Colab.
+
+
+Chạy các test từ thư mục `Sub-ASR/`:
+
+```bash
+uv run --locked python -m unittest discover -s tests -v
+uv run --locked python -m unittest -v test_voice
+```
+
+Cấu hình notebook nằm tại `.env` ở gốc repo ASR; cấu hình CLI nằm tại `Sub-ASR/.env`. GPU, ASR/LLM thật, microphone và TTS cần kiểm định riêng trên máy đích.
