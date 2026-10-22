@@ -15,7 +15,7 @@ def main():
         server_port=settings.port,
         share=settings.share,
         auth=(settings.username, settings.password) if settings.username else None,
-        show_error=False,
+        show_error=True,
         allowed_paths=[],
         blocked_paths=[str(ROOT)],
         js=Path(__file__).parent.joinpath("web_asr/browser_audio.js").read_text(),

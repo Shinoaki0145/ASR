@@ -2,7 +2,7 @@
   const player = document.createElement('audio');
   const retryButton=()=>document.getElementById('web-asr-retry');
   player.id = 'web-asr-player';
-  let commandId = 0, generation = -1, epoch = 0, muted = false, active = null;
+  let commandId = 0, generation = -1, epoch = 0, muted = false, active = null, ready = false;
   const acks = [];
   let stream=null, context=null, source=null, processor=null, mic=false, chunks=[], samples=0, micError=null, sequence=0, recordingId=0, captured=0;
   async function toggleMic() {
@@ -30,14 +30,16 @@
       micError=e.name+': '+e.message;stream?.getTracks().forEach(t=>t.stop());await context?.close();mic=false;return false;
     }
   }
-  function drain() {
+  function drain(force=false) {
+    if (!ready && !force) return '';
+    ready = true;
     let data='';const rate=context?.sampleRate||16000;
     if(samples){const bytes=new Uint8Array(samples*2);const view=new DataView(bytes.buffer);let offset=0;
       for(const c of chunks)for(const x of c){view.setInt16(offset,Math.round(Math.max(-1,Math.min(1,x))*32767),true);offset+=2;}
       for(let i=0;i<bytes.length;i+=8192)data+=String.fromCharCode(...bytes.subarray(i,i+8192));
     }
-    chunks=[];samples=0;
-    return JSON.stringify({sequence:++sequence,recording_id:recordingId,rate,audio:btoa(data),mic,error:micError,acks:acks.splice(0)});
+    chunks=[];samples=0;const err=micError;micError=null;
+    return JSON.stringify({sequence:++sequence,recording_id:recordingId,rate,audio:btoa(data),mic,error:err,acks:acks.splice(0)});
   }
   function ack(c, status) { acks.push({...c, audio_url: undefined, status}); }
   function stop(status='stopped') {
@@ -51,6 +53,7 @@
     mute(value) { epoch++;muted = value; if (value) stop('muted'); },
     apply(snapshot) {
       if (!snapshot) return null;
+      ready = true;
       document.getElementById('web-asr-audio-slot')?.append(player);
       if(retryButton())retryButton().onclick=()=>{if(active){player.play().catch(()=>{});}};
       if(snapshot.capture_error && mic){micError=snapshot.capture_error;toggleMic();}

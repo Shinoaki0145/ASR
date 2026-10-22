@@ -6,7 +6,7 @@
 
 1. Đưa **repo đầy đủ** lên Colab/Drive hoặc đặt `REPO_URL` trong [Run_Web_ASR_Colab.ipynb](Run_Web_ASR_Colab.ipynb). Cần cả `Web-ASR` và `Sub-ASR`.
 2. Chọn runtime T4 GPU. Notebook mặc định `FAKE=False`, `SHARE=True`.
-3. Điền `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL` trong `.env` gốc repo hoặc Colab Secrets. Có thể xem [.env.example](.env.example); `ASR_ENV_PATH` đổi đường dẫn config. Google AI Studio dùng `https://generativelanguage.googleapis.com/v1beta/openai`; tên model lấy từ tài khoản của bạn.
+3. Điền `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL` trong `.env` gốc repo, file upload `/content/.env` hoặc Colab Secrets. Notebook tự đọc file trước khi hỏi thông tin còn thiếu. Có thể xem [.env.example](.env.example); `ASR_ENV_PATH` đổi đường dẫn config. Google AI Studio dùng `https://generativelanguage.googleapis.com/v1beta/openai`; tên model lấy từ tài khoản của bạn.
 4. Chạy các cell lần lượt **đến cell xem URL**. Nhập mật khẩu web khi được hỏi. Cell cuối để dừng server, không chạy ngay nếu còn muốn sử dụng.
 5. Mở URL Gradio trong tab riêng, đăng nhập và cho phép microphone. Dùng tai nghe. Nút loa chỉ bật/tắt phát tiếng bot.
 

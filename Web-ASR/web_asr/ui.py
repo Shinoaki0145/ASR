@@ -10,6 +10,11 @@ def build_ui(controller, settings):
         sessions[request.session_hash] = token
         return token
 
+    def resolve_sid(sid, request: gr.Request = None):
+        if sid:
+            return sid
+        return sessions.get(getattr(request, "session_hash", None), "")
+
     def unload(request: gr.Request):
         token = sessions.pop(request.session_hash, None)
         if token:
@@ -18,13 +23,19 @@ def build_ui(controller, settings):
             except KeyError:
                 pass
 
-    def submit(sid, text, payload):
+    def submit(sid, text, payload, request: gr.Request):
+        sid = resolve_sid(sid, request)
+        if not sid:
+            raise gr.Error("Đang khởi tạo phiên, vui lòng đợi 1–2 giây rồi thử lại.")
         packet = json.loads(payload)
         packet["text"] = text
         ingest(sid, packet)
         return ""
 
-    def mic(sid, payload):
+    def mic(sid, payload, request: gr.Request):
+        sid = resolve_sid(sid, request)
+        if not sid:
+            raise gr.Error("Đang khởi tạo phiên, vui lòng đợi 1–2 giây rồi thử lại.")
         packet = json.loads(payload)
         ingest(sid, packet)
         return gr.Button("Tắt mic" if packet["mic"] else "Bật mic")
@@ -34,12 +45,16 @@ def build_ui(controller, settings):
             gr.Warning(packet["error"])
         controller.dispatch(sid, "packet", packet)
 
-    def speaker(sid, enabled):
+    def speaker(sid, enabled, request: gr.Request):
+        sid = resolve_sid(sid, request)
+        if not sid:
+            return enabled, gr.Button("Tắt loa" if enabled else "Bật loa")
         enabled = not enabled
         controller.dispatch(sid, "speaker", enabled)
         return enabled, gr.Button("Tắt loa" if enabled else "Bật loa")
 
-    def poll(sid, payload):
+    def poll(sid, payload, request: gr.Request):
+        sid = resolve_sid(sid, request)
         if not sid:
             return gr.skip(), gr.skip(), gr.skip(), gr.skip(), gr.skip()
         if payload:
@@ -112,14 +127,14 @@ def build_ui(controller, settings):
             [sid, text, packet],
             text,
             concurrency_limit=None,
-            js="(sid,text)=>[sid,text,window.webASR.drain()]",
+            js="(sid,text)=>[sid,text,window.webASR.drain(true)]",
         )
         mic_btn.click(
             mic,
             [sid, packet],
             mic_btn,
             concurrency_limit=1,
-            js="async(sid)=>{await window.webASR.toggleMic();return [sid,window.webASR.drain()]}",
+            js="async(sid)=>{await window.webASR.toggleMic();return [sid,window.webASR.drain(true)]}",
         )
         speaker_btn.click(
             speaker,
