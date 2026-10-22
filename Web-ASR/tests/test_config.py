@@ -13,11 +13,9 @@ class ConfigTests(TestCase):
         with mock.patch.dict(
             os.environ,
             {
-                "WEB_FAKE": "true",
-                "WEB_SHARE": "true",
+                "WEB_FAKE": "false",
                 "ASR_ENV_PATH": "/nonexistent",
-                "WEB_USERNAME": "",
-                "WEB_PASSWORD": "",
+                "LLM_BASE_URL": "",
             },
             clear=True,
         ):

@@ -52,8 +52,6 @@ class Settings:
         )
         if not s.fake and not (s.base_url and s.model and s.api_key):
             raise ValueError("Thiếu LLM_BASE_URL / LLM_MODEL / LLM_API_KEY")
-        if (s.share or s.host != "127.0.0.1") and not (s.username and s.password):
-            raise ValueError("Cần WEB_USERNAME và WEB_PASSWORD khi chia sẻ web")
         if not 0 < s.silence < 30 or not 0 < s.timeout < 120:
             raise ValueError("Silence/timeout không hợp lệ")
         return s

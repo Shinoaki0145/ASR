@@ -59,6 +59,4 @@ class NotebookTests(unittest.TestCase):
                 exec(compile(source, "<config-cell>", "exec"), scope)
             self.assertEqual(scope["SERVER_ENV"]["ASR_ENV_PATH"], str(env))
             self.assertEqual(scope["SERVER_ENV"]["LLM_API_KEY"], "test-secret")
-            self.assertEqual(scope["SERVER_ENV"]["WEB_PASSWORD"], "web-secret")
             self.assertNotIn("test-secret", output.getvalue())
-            self.assertNotIn("web-secret", output.getvalue())

@@ -14,7 +14,7 @@ def main():
         server_name=settings.host,
         server_port=settings.port,
         share=settings.share,
-        auth=(settings.username, settings.password) if settings.username else None,
+        auth=None,
         show_error=True,
         allowed_paths=[],
         blocked_paths=[str(ROOT)],
