@@ -53,6 +53,17 @@ def build_ui(controller, settings):
         controller.dispatch(sid, "speaker", enabled)
         return enabled, gr.Button("Tắt loa" if enabled else "Bật loa")
 
+    def upload_audio(sid, file_path, payload, request: gr.Request):
+        sid = resolve_sid(sid, request)
+        if not sid:
+            raise gr.Error("Đang khởi tạo phiên, vui lòng đợi 1–2 giây rồi thử lại.")
+        if payload:
+            ingest(sid, json.loads(payload))
+        if not file_path:
+            return None
+        controller.dispatch(sid, "audio_file", file_path, True)
+        return None
+
     def poll(sid, payload, request: gr.Request):
         sid = resolve_sid(sid, request)
         if not sid:
@@ -105,6 +116,11 @@ def build_ui(controller, settings):
                 with gr.Row():
                     mic_btn = gr.Button("Bật mic")
                     speaker_btn = gr.Button("Tắt loa")
+                    upload_btn = gr.UploadButton(
+                        "Upload file âm thanh",
+                        file_types=["audio"],
+                        file_count="single",
+                    )
                 gr.HTML(
                     '<div id="web-asr-audio-slot"></div><button type="button" id="web-asr-retry" style="display:none">Phát tiếng bị browser chặn</button>'
                 )
@@ -142,6 +158,13 @@ def build_ui(controller, settings):
             [speaker_on, speaker_btn],
             concurrency_limit=1,
             js="(sid,on)=>{window.webASR?.mute(on);return [sid,on]}",
+        )
+        upload_btn.upload(
+            upload_audio,
+            [sid, upload_btn, packet],
+            upload_btn,
+            concurrency_limit=1,
+            js="(sid,file)=>[sid,file,window.webASR?.drain(true)||'']",
         )
         timer.tick(
             poll,

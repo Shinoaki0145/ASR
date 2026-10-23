@@ -4,7 +4,10 @@ import asyncio
 from contextlib import suppress
 import copy
 from collections import deque
+from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
 import threading
 import time
@@ -14,6 +17,7 @@ import base64
 import io
 import wave
 import numpy as np
+import soundfile as sf
 from .config import ROOT
 from .audio import AudioIngress
 
@@ -163,6 +167,7 @@ class Client:
         self.audio_queued = 0
         self.capture_error = None
         self.recording_id = None
+        self.file_task = None
         self.llm = (
             FakeLLM()
             if controller.settings.fake
@@ -460,9 +465,116 @@ class Client:
             self.queue.put_nowait(frame)
             self.audio_queued += 1
 
+    @staticmethod
+    def load_audio_file(path):
+        p = Path(path)
+        if not p.is_file():
+            raise FileNotFoundError(f"Không tìm thấy file: {p.name}")
+        try:
+            wave_data, rate = sf.read(str(p), dtype="float32", always_2d=False)
+            ingress = AudioIngress()
+            frames = ingress.push(int(rate), wave_data) + ingress.finish()
+            return frames, round(len(frames) * 512 / 16000, 3), int(rate)
+        except Exception:
+            ffmpeg = shutil.which("ffmpeg")
+            if not ffmpeg:
+                raise ValueError("Không đọc được định dạng file âm thanh này (thiếu ffmpeg)")
+            r = subprocess.run(
+                [
+                    ffmpeg,
+                    "-nostdin",
+                    "-v",
+                    "warning",
+                    "-i",
+                    str(p.resolve()),
+                    "-map",
+                    "0:a:0",
+                    "-ac",
+                    "1",
+                    "-ar",
+                    "16000",
+                    "-f",
+                    "f32le",
+                    "pipe:1",
+                ],
+                capture_output=True,
+                check=False,
+            )
+            if r.returncode or not r.stdout:
+                raise ValueError(
+                    "FFmpeg lỗi: " + r.stderr.decode(errors="replace").strip()
+                )
+            wave_16k = np.frombuffer(r.stdout, dtype="<f4").astype(np.float32, copy=True)
+            ingress = AudioIngress()
+            frames = ingress.push(16000, wave_16k) + ingress.finish()
+            return frames, round(len(frames) * 512 / 16000, 3), 16000
+
+    def stop_file_stream(self):
+        if self.file_task and not self.file_task.done():
+            self.file_task.cancel()
+        self.file_task = None
+
+    def start_file_stream(self, path, realtime=True):
+        self.stop_file_stream()
+        frames, duration_s, orig_rate = self.load_audio_file(path)
+        name = Path(path).name
+        if not frames:
+            raise ValueError("File âm thanh rỗng")
+
+        async def _stream():
+            self.event(
+                dict(
+                    event="file_stream_started",
+                    generation=self.session.generation,
+                    file=name,
+                    audio_duration_s=duration_s,
+                    sample_rate=orig_rate,
+                    frames=len(frames),
+                    realtime=realtime,
+                )
+            )
+            silence_frames = int(round((self.controller.settings.silence + 0.15) * 16000 / 512))
+            all_frames = list(frames) + [
+                np.zeros(512, dtype=np.float32) for _ in range(silence_frames)
+            ]
+            deadline = time.perf_counter()
+            try:
+                for idx, frame in enumerate(all_frames):
+                    while self.audio_queued > 64:
+                        await asyncio.sleep(0.016)
+                    self.queue.put_nowait(frame)
+                    self.audio_queued += 1
+                    if realtime and idx < len(frames):
+                        deadline += 512 / 16000
+                        delay = deadline - time.perf_counter()
+                        if delay > 0:
+                            await asyncio.sleep(delay)
+                    else:
+                        await asyncio.sleep(0)
+                self.event(
+                    dict(
+                        event="file_stream_finished",
+                        generation=self.session.generation,
+                        file=name,
+                        audio_duration_s=duration_s,
+                    )
+                )
+            except asyncio.CancelledError:
+                self.event(
+                    dict(
+                        event="file_stream_cancelled",
+                        generation=self.session.generation,
+                        file=name,
+                    )
+                )
+                raise
+
+        self.file_task = asyncio.create_task(_stream())
+
     async def close(self):
         self.closed = True
         self.mic = False
+        self.stop_file_stream()
         self.stop_audio("interrupted")
         self.worker.cancel()
         await asyncio.gather(self.worker, return_exceptions=True)
@@ -564,6 +676,10 @@ class Controller:
             elif action == "audio":
                 if c.mic and args[0] is not None:
                     c.enqueue(c.ingress.push(*args[0]))
+            elif action == "audio_file":
+                path = args[0]
+                realtime = args[1] if len(args) > 1 else True
+                c.start_file_stream(path, realtime=realtime)
             elif action == "speaker":
                 c.speaker = args[0]
                 c.epoch += 1
