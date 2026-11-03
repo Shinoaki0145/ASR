@@ -1,4 +1,5 @@
 import asyncio
+from pathlib import Path
 import time
 import unittest
 import numpy as np
@@ -238,10 +239,11 @@ class BackendTests(unittest.TestCase):
         import soundfile as sf
 
         self.c.dispatch(self.sid, "speaker", False)
-        with tempfile.NamedTemporaryFile(suffix=".wav") as f:
+        with tempfile.TemporaryDirectory() as folder:
+            path = str(Path(folder) / "speech.wav")
             speech = np.ones(16000, dtype=np.float32) * 0.2
-            sf.write(f.name, speech, 16000)
-            self.c.dispatch(self.sid, "audio_file", f.name, False)
+            sf.write(path, speech, 16000)
+            self.c.dispatch(self.sid, "audio_file", path, False)
             s = self.wait(lambda s: s["request"] is not None)
         self.assertIn("âm thanh demo", s["request"])
         self.assertTrue(any(e["event"] == "file_stream_started" for e in s["events"]))

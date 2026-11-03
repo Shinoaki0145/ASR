@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 @dataclass
 class Settings:
+    mode: str = "chat"
     fake: bool = False
     base_url: str = ""
     model: str = ""
@@ -24,7 +25,9 @@ class Settings:
     tts_rate: str = "+0%"
 
     @classmethod
-    def load(cls):
+    def load(cls, mode="chat"):
+        if mode not in {"chat", "form"}:
+            raise ValueError("Mode không hợp lệ")
         values = {
             **dotenv_values(os.getenv("ASR_ENV_PATH", str(ROOT / ".env"))),
             **os.environ,
@@ -35,6 +38,7 @@ class Settings:
 
         yes = lambda k, d="false": get(k, d).lower() in {"1", "true", "yes"}
         s = cls(
+            mode=mode,
             fake=yes("WEB_FAKE"),
             base_url=get("LLM_BASE_URL"),
             model=get("LLM_MODEL"),
@@ -45,12 +49,12 @@ class Settings:
             password=get("WEB_PASSWORD"),
             host=get("WEB_HOST", "127.0.0.1"),
             port=int(get("WEB_PORT", "7860")),
-            silence=float(get("SEGMENT_SILENCE_SECONDS", "1")),
+            silence=float(get("SEGMENT_SILENCE_SECONDS", "0.7" if mode == "form" else "1")),
             timeout=float(get("RESOLVE_TIMEOUT_SECONDS", "5")),
             tts_voice=get("TTS_VOICE", "vi-VN-HoaiMyNeural"),
             tts_rate=get("TTS_RATE", "+0%"),
         )
-        if not s.fake and not (s.base_url and s.model and s.api_key):
+        if mode == "chat" and not s.fake and not (s.base_url and s.model and s.api_key):
             raise ValueError("Thiếu LLM_BASE_URL / LLM_MODEL / LLM_API_KEY")
         if not 0 < s.silence < 30 or not 0 < s.timeout < 120:
             raise ValueError("Silence/timeout không hợp lệ")

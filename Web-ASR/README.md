@@ -1,5 +1,50 @@
 # Web-ASR
 
+## Điền form bằng giọng nói (mới)
+
+Đẩy source lên GitHub với hai thư mục `Web-ASR` và `Sub-ASR` ở gốc repo.
+Mở `Run_Form_ASR_Colab.ipynb`, đặt `REPO_URL` (mặc định repo ASR hiện tại)
+và `REPO_BRANCH` nếu cần chọn nhánh, rồi chọn T4 GPU và chạy đến cell URL.
+Notebook tự clone khi chưa có source, hoặc tái sử dụng checkout sẵn có như
+Web-ASR. Nếu checkout cũ thiếu `form_app.py`, cập nhật code rồi chạy lại;
+notebook không tự ghi đè checkout. Không cần upload ZIP, LLM key hoặc cài espeak-ng.
+Mở link web và cấp quyền mic; không có bước đăng nhập.
+
+Luồng: browser PCM → Silero VAD → Gipformer → trường đã chọn. Form mẫu gồm
+họ tên, điện thoại và địa chỉ. Nghỉ mặc định 0,7 giây để chốt một đoạn;
+`SEGMENT_SILENCE_SECONDS` đổi ngưỡng. Các đoạn nối vào trường; điện thoại đọc
+từng chữ số (giữ số 0 đầu), không hỗ trợ cách đọc nhóm như “chín mươi”.
+Chọn trường mới không chuyển đích của đoạn đã bắt đầu trước đó.
+
+Ba trường hiển thị là kết quả nhận dạng. Muốn sửa hoặc xóa: chọn trường, nhập
+toàn bộ giá trị vào ô sửa rồi bấm **Lưu sửa tay**. Kết quả ASR cũ không ghi đè
+bản sửa đã lưu. Bản gõ chưa bấm lưu chưa thuộc form; đổi trường sẽ nạp lại giá
+trị của trường mới vào ô sửa. Tắt mic và chờ ASR xong trước khi **Tải JSON**.
+Yêu cầu họ tên, địa chỉ và điện thoại định dạng `0` + 9 số hoặc `+84` + 9 số;
+đây là kiểm tra định dạng, không xác thực chủ thuê bao. Không tự gửi form.
+
+Chạy demo local từ `Web-ASR` (PowerShell):
+
+```powershell
+$env:WEB_FAKE='true'
+.\.venv\Scripts\python -X utf8 form_app.py
+```
+
+Hoặc trên Linux: `WEB_FAKE=true uv run --locked python form_app.py`.
+Demo dùng transcript cố định, không đánh giá chất lượng model thật.
+Chạy model thật vẫn cần Linux/CUDA và model setup như notebook. Link public
+không yêu cầu `WEB_USERNAME`/`WEB_PASSWORD`, kể cả khi `.env` còn chứa hai biến này.
+Ai có link public đều có thể mở và dùng ứng dụng.
+JSON được tải bằng browser, không tạo file form trên server. Dữ liệu và
+transcript trong RAM được xóa khi phiên đóng/hết hạn; cần tải trước khi đóng
+tab hoặc dừng Colab. Hai phiên độc lập, một mic hoạt động cùng lúc.
+
+Kiểm tra: `python -X utf8 -m unittest discover -s tests -v`.
+Kiểm tra trình duyệt: `python -X utf8 tests/browser/test_form_browser.py`.
+Chưa benchmark GPU thật hoặc độ chính xác tên riêng/số điện thoại.
+
+Phần dưới là tài liệu luồng hội thoại cũ (`app.py`).
+
 Ứng dụng Gradio dùng một notebook Colab để chạy backend và giao diện. Người dùng mở link web, nhập text hoặc bật mic, xem phản hồi LLM và nghe bot. Hai nút mic/loa độc lập; sidebar bên phải hiện request, generation, nhóm input và 200 sự kiện debug.
 
 ## Chạy Colab

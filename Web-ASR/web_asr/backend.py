@@ -168,6 +168,18 @@ class Client:
         self.capture_error = None
         self.recording_id = None
         self.file_task = None
+        self.session = self.create_session()
+        self.runner = AudioRunner(
+            self.session,
+            controller.pool,
+            vad,
+            TurnConfig(),
+            controller.settings.silence,
+        )
+        self.worker = asyncio.create_task(self.consume())
+
+    def create_session(self):
+        controller = self.controller
         self.llm = (
             FakeLLM()
             if controller.settings.fake
@@ -179,15 +191,13 @@ class Client:
                 turn_model=controller.settings.turn_model,
             )
         )
-        self.session = WebSession(self, self.llm)
-        self.runner = AudioRunner(
-            self.session,
-            controller.pool,
-            vad,
-            TurnConfig(),
-            controller.settings.silence,
-        )
-        self.worker = asyncio.create_task(self.consume())
+        return WebSession(self, self.llm)
+
+    def snapshot_extra(self):
+        return {}
+
+    def packet_control(self, packet):
+        pass
 
     def now(self):
         return round(time.perf_counter() - self.session.origin, 3)
@@ -434,6 +444,14 @@ class Client:
                     if not self.runner.busy:
                         continue
                     frame = None if self.mic else np.zeros(512, np.float32)
+                if isinstance(frame, tuple):
+                    callback, future = frame
+                    if not future.cancelled():
+                        try:
+                            future.set_result(callback())
+                        except Exception as exc:
+                            future.set_exception(exc)
+                    continue
                 if not isinstance(frame, str):
                     self.audio_queued = max(0, self.audio_queued - 1)
                 if isinstance(frame, str):
@@ -584,10 +602,13 @@ class Client:
             try:
                 await self.runner.close()
             finally:
-                await self.llm.close()
+                if self.llm is not None:
+                    await self.llm.close()
 
 
 class Controller:
+    client_type = Client
+
     def __init__(self, settings, pool=None):
         self.settings = settings
         self.pool = pool or ModelPool(settings.fake)
@@ -625,7 +646,7 @@ class Controller:
                 try:
                     vad = await asyncio.to_thread(self.pool.new_vad)
                     key = uuid.uuid4().hex
-                    self.clients[key] = Client(self, vad)
+                    self.clients[key] = self.client_type(self, vad)
                     return key
                 finally:
                     self.opening -= 1
@@ -662,6 +683,7 @@ class Controller:
                     if not p["mic"] and c.mic:
                         c.enqueue(c.ingress.finish())
                         c.mic = False
+                    c.packet_control(p)
             elif action == "text":
                 c.queue.put_nowait(args[0])
             elif action == "mic":
@@ -707,6 +729,7 @@ class Controller:
                     mode="DEMO — không phải nhận dạng thật"
                     if self.settings.fake
                     else "REAL",
+                    **c.snapshot_extra(),
                 )
             elif action == "close":
                 await c.close()
